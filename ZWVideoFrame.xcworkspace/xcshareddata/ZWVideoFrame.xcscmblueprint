@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E7C0E7132798C127569945CA51A7CCDF0C51718B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E7C0E7132798C127569945CA51A7CCDF0C51718B" : 0,
+    "D157DF23270FAFDEDA8A62060C07F853DB4C6AAB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5D41FC8A-A1FA-464A-A356-5DF28C17ABE3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E7C0E7132798C127569945CA51A7CCDF0C51718B" : "ZWVideoFrame\/",
+    "D157DF23270FAFDEDA8A62060C07F853DB4C6AAB" : "Waveform\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ZWVideoFrame",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ZWVideoFrame.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/denivip\/Waveform.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D157DF23270FAFDEDA8A62060C07F853DB4C6AAB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zzzworm\/ZWVideoFrame.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E7C0E7132798C127569945CA51A7CCDF0C51718B"
+    }
+  ]
+}

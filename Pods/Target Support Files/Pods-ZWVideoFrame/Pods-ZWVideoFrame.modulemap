@@ -1,0 +1,6 @@
+framework module Pods_ZWVideoFrame {
+  umbrella header "Pods-ZWVideoFrame-umbrella.h"
+
+  export *
+  module * { export * }
+}

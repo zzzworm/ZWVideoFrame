@@ -7,12 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		943F7D1F1CCFA7300016A87E /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D171CCFA7300016A87E /* BrowserView.swift */; };
+		943F7D201CCFA7300016A87E /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D181CCFA7300016A87E /* BrowserViewController.swift */; };
+		943F7D211CCFA7300016A87E /* SpringsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D191CCFA7300016A87E /* SpringsViewController.swift */; };
+		943F7D221CCFA7300016A87E /* ImportMusicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1A1CCFA7300016A87E /* ImportMusicalView.swift */; };
+		943F7D231CCFA7300016A87E /* SpringConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1B1CCFA7300016A87E /* SpringConfigurationView.swift */; };
+		943F7D241CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1C1CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift */; };
+		943F7D251CCFA7300016A87E /* SimpleTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1D1CCFA7300016A87E /* SimpleTransform.swift */; };
+		943F7D261CCFA7300016A87E /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1E1CCFA7300016A87E /* SpringView.swift */; };
+		94B8BD0B1CCFC2DD00B4DEE0 /* AudioSamplesReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF01CCFC2DD00B4DEE0 /* AudioSamplesReader.swift */; };
+		94B8BD0C1CCFC2DD00B4DEE0 /* ScalableChannelsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF11CCFC2DD00B4DEE0 /* ScalableChannelsContainer.swift */; };
+		94B8BD0D1CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF21CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagram.swift */; };
+		94B8BD0E1CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagramModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF31CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagramModel.swift */; };
+		94B8BD0F1CCFC2DD00B4DEE0 /* DVGWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF41CCFC2DD00B4DEE0 /* DVGWaveformView.swift */; };
+		94B8BD101CCFC2DD00B4DEE0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 94B8BCF51CCFC2DD00B4DEE0 /* LICENSE */; };
+		94B8BD111CCFC2DD00B4DEE0 /* AudioReaderSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF71CCFC2DD00B4DEE0 /* AudioReaderSettings.swift */; };
+		94B8BD121CCFC2DD00B4DEE0 /* AudioSamplesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF81CCFC2DD00B4DEE0 /* AudioSamplesContainer.swift */; };
+		94B8BD131CCFC2DD00B4DEE0 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCF91CCFC2DD00B4DEE0 /* Buffer.swift */; };
+		94B8BD141CCFC2DD00B4DEE0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCFA1CCFC2DD00B4DEE0 /* Channel.swift */; };
+		94B8BD151CCFC2DD00B4DEE0 /* DiagramGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCFB1CCFC2DD00B4DEE0 /* DiagramGeometry.swift */; };
+		94B8BD161CCFC2DD00B4DEE0 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCFC1CCFC2DD00B4DEE0 /* Dispatch.swift */; };
+		94B8BD171CCFC2DD00B4DEE0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCFD1CCFC2DD00B4DEE0 /* Error.swift */; };
+		94B8BD181CCFC2DD00B4DEE0 /* LogicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCFE1CCFC2DD00B4DEE0 /* LogicProvider.swift */; };
+		94B8BD191CCFC2DD00B4DEE0 /* NumberTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BCFF1CCFC2DD00B4DEE0 /* NumberTypes.swift */; };
+		94B8BD1A1CCFC2DD00B4DEE0 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD001CCFC2DD00B4DEE0 /* Protocols.swift */; };
+		94B8BD1B1CCFC2DD00B4DEE0 /* UIKit+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD011CCFC2DD00B4DEE0 /* UIKit+extensions.swift */; };
+		94B8BD1C1CCFC2DD00B4DEE0 /* Diagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD031CCFC2DD00B4DEE0 /* Diagram.swift */; };
+		94B8BD1D1CCFC2DD00B4DEE0 /* PlaybackPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD041CCFC2DD00B4DEE0 /* PlaybackPositionView.swift */; };
+		94B8BD1E1CCFC2DD00B4DEE0 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD051CCFC2DD00B4DEE0 /* Plot.swift */; };
+		94B8BD1F1CCFC2DD00B4DEE0 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD061CCFC2DD00B4DEE0 /* SelectionView.swift */; };
+		94B8BD201CCFC2DD00B4DEE0 /* ChannelSourceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD081CCFC2DD00B4DEE0 /* ChannelSourceMapper.swift */; };
+		94B8BD211CCFC2DD00B4DEE0 /* DiagramModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD091CCFC2DD00B4DEE0 /* DiagramModel.swift */; };
+		94B8BD221CCFC2DD00B4DEE0 /* PlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD0A1CCFC2DD00B4DEE0 /* PlotModel.swift */; };
+		94C433681CCFAD4A00CFBD64 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C433671CCFAD4A00CFBD64 /* CardViewController.swift */; };
 		94C8BA941CCDE5610016CFFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BA931CCDE5610016CFFB /* AppDelegate.swift */; };
 		94C8BA961CCDE5610016CFFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BA951CCDE5610016CFFB /* ViewController.swift */; };
-		94C8BA991CCDE5610016CFFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C8BA971CCDE5610016CFFB /* Main.storyboard */; };
 		94C8BA9B1CCDE5610016CFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C8BA9A1CCDE5610016CFFB /* Assets.xcassets */; };
 		94C8BA9E1CCDE5620016CFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C8BA9C1CCDE5620016CFFB /* LaunchScreen.storyboard */; };
 		94C8BAA91CCDE5620016CFFB /* ZWVideoFrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BAA81CCDE5620016CFFB /* ZWVideoFrameTests.swift */; };
+		DBBAC999A43B5B50CA46551B /* Pods_ZWVideoFrame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7745E0C2B0114419B9CC3CB /* Pods_ZWVideoFrame.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +59,51 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35508F43184428AC048BB29A /* Pods-ZWVideoFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZWVideoFrame.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZWVideoFrame/Pods-ZWVideoFrame.release.xcconfig"; sourceTree = "<group>"; };
+		81D02EED2FB6BE257D62BC52 /* Pods-ZWVideoFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZWVideoFrame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZWVideoFrame/Pods-ZWVideoFrame.debug.xcconfig"; sourceTree = "<group>"; };
+		943F7D171CCFA7300016A87E /* BrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+		943F7D181CCFA7300016A87E /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		943F7D191CCFA7300016A87E /* SpringsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringsViewController.swift; sourceTree = "<group>"; };
+		943F7D1A1CCFA7300016A87E /* ImportMusicalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportMusicalView.swift; sourceTree = "<group>"; };
+		943F7D1B1CCFA7300016A87E /* SpringConfigurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringConfigurationView.swift; sourceTree = "<group>"; };
+		943F7D1C1CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectManipulationGestureRecognizer.swift; sourceTree = "<group>"; };
+		943F7D1D1CCFA7300016A87E /* SimpleTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTransform.swift; sourceTree = "<group>"; };
+		943F7D1E1CCFA7300016A87E /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
+		94B8BCF01CCFC2DD00B4DEE0 /* AudioSamplesReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSamplesReader.swift; sourceTree = "<group>"; };
+		94B8BCF11CCFC2DD00B4DEE0 /* ScalableChannelsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableChannelsContainer.swift; sourceTree = "<group>"; };
+		94B8BCF21CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVGAudioWaveformDiagram.swift; sourceTree = "<group>"; };
+		94B8BCF31CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagramModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVGAudioWaveformDiagramModel.swift; sourceTree = "<group>"; };
+		94B8BCF41CCFC2DD00B4DEE0 /* DVGWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVGWaveformView.swift; sourceTree = "<group>"; };
+		94B8BCF51CCFC2DD00B4DEE0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		94B8BCF71CCFC2DD00B4DEE0 /* AudioReaderSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioReaderSettings.swift; sourceTree = "<group>"; };
+		94B8BCF81CCFC2DD00B4DEE0 /* AudioSamplesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSamplesContainer.swift; sourceTree = "<group>"; };
+		94B8BCF91CCFC2DD00B4DEE0 /* Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
+		94B8BCFA1CCFC2DD00B4DEE0 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		94B8BCFB1CCFC2DD00B4DEE0 /* DiagramGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagramGeometry.swift; sourceTree = "<group>"; };
+		94B8BCFC1CCFC2DD00B4DEE0 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
+		94B8BCFD1CCFC2DD00B4DEE0 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		94B8BCFE1CCFC2DD00B4DEE0 /* LogicProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicProvider.swift; sourceTree = "<group>"; };
+		94B8BCFF1CCFC2DD00B4DEE0 /* NumberTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberTypes.swift; sourceTree = "<group>"; };
+		94B8BD001CCFC2DD00B4DEE0 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		94B8BD011CCFC2DD00B4DEE0 /* UIKit+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+extensions.swift"; sourceTree = "<group>"; };
+		94B8BD031CCFC2DD00B4DEE0 /* Diagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diagram.swift; sourceTree = "<group>"; };
+		94B8BD041CCFC2DD00B4DEE0 /* PlaybackPositionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackPositionView.swift; sourceTree = "<group>"; };
+		94B8BD051CCFC2DD00B4DEE0 /* Plot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
+		94B8BD061CCFC2DD00B4DEE0 /* SelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		94B8BD081CCFC2DD00B4DEE0 /* ChannelSourceMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelSourceMapper.swift; sourceTree = "<group>"; };
+		94B8BD091CCFC2DD00B4DEE0 /* DiagramModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagramModel.swift; sourceTree = "<group>"; };
+		94B8BD0A1CCFC2DD00B4DEE0 /* PlotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotModel.swift; sourceTree = "<group>"; };
+		94C433671CCFAD4A00CFBD64 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		94C8BA901CCDE5610016CFFB /* ZWVideoFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWVideoFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C8BA931CCDE5610016CFFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C8BA951CCDE5610016CFFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		94C8BA981CCDE5610016CFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94C8BA9A1CCDE5610016CFFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94C8BA9D1CCDE5620016CFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94C8BA9F1CCDE5620016CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C8BAA41CCDE5620016CFFB /* ZWVideoFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZWVideoFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C8BAA81CCDE5620016CFFB /* ZWVideoFrameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWVideoFrameTests.swift; sourceTree = "<group>"; };
 		94C8BAAA1CCDE5620016CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7745E0C2B0114419B9CC3CB /* Pods_ZWVideoFrame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZWVideoFrame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBBAC999A43B5B50CA46551B /* Pods_ZWVideoFrame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +125,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61256B78509E953AD7298F15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81D02EED2FB6BE257D62BC52 /* Pods-ZWVideoFrame.debug.xcconfig */,
+				35508F43184428AC048BB29A /* Pods-ZWVideoFrame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		94B8BCED1CCFC2DD00B4DEE0 /* Vonder */ = {
+			isa = PBXGroup;
+			children = (
+				94B8BCEE1CCFC2DD00B4DEE0 /* Waveform */,
+			);
+			path = Vonder;
+			sourceTree = "<group>";
+		};
+		94B8BCEE1CCFC2DD00B4DEE0 /* Waveform */ = {
+			isa = PBXGroup;
+			children = (
+				94B8BCEF1CCFC2DD00B4DEE0 /* Data Source */,
+				94B8BCF21CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagram.swift */,
+				94B8BCF31CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagramModel.swift */,
+				94B8BCF41CCFC2DD00B4DEE0 /* DVGWaveformView.swift */,
+				94B8BCF51CCFC2DD00B4DEE0 /* LICENSE */,
+				94B8BCF61CCFC2DD00B4DEE0 /* Utility */,
+				94B8BD021CCFC2DD00B4DEE0 /* View */,
+				94B8BD071CCFC2DD00B4DEE0 /* View Model */,
+			);
+			path = Waveform;
+			sourceTree = "<group>";
+		};
+		94B8BCEF1CCFC2DD00B4DEE0 /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				94B8BCF01CCFC2DD00B4DEE0 /* AudioSamplesReader.swift */,
+				94B8BCF11CCFC2DD00B4DEE0 /* ScalableChannelsContainer.swift */,
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		94B8BCF61CCFC2DD00B4DEE0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				94B8BCF71CCFC2DD00B4DEE0 /* AudioReaderSettings.swift */,
+				94B8BCF81CCFC2DD00B4DEE0 /* AudioSamplesContainer.swift */,
+				94B8BCF91CCFC2DD00B4DEE0 /* Buffer.swift */,
+				94B8BCFA1CCFC2DD00B4DEE0 /* Channel.swift */,
+				94B8BCFB1CCFC2DD00B4DEE0 /* DiagramGeometry.swift */,
+				94B8BCFC1CCFC2DD00B4DEE0 /* Dispatch.swift */,
+				94B8BCFD1CCFC2DD00B4DEE0 /* Error.swift */,
+				94B8BCFE1CCFC2DD00B4DEE0 /* LogicProvider.swift */,
+				94B8BCFF1CCFC2DD00B4DEE0 /* NumberTypes.swift */,
+				94B8BD001CCFC2DD00B4DEE0 /* Protocols.swift */,
+				94B8BD011CCFC2DD00B4DEE0 /* UIKit+extensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		94B8BD021CCFC2DD00B4DEE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94B8BD031CCFC2DD00B4DEE0 /* Diagram.swift */,
+				94B8BD041CCFC2DD00B4DEE0 /* PlaybackPositionView.swift */,
+				94B8BD051CCFC2DD00B4DEE0 /* Plot.swift */,
+				94B8BD061CCFC2DD00B4DEE0 /* SelectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94B8BD071CCFC2DD00B4DEE0 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				94B8BD081CCFC2DD00B4DEE0 /* ChannelSourceMapper.swift */,
+				94B8BD091CCFC2DD00B4DEE0 /* DiagramModel.swift */,
+				94B8BD0A1CCFC2DD00B4DEE0 /* PlotModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		94C8BA871CCDE5610016CFFB = {
 			isa = PBXGroup;
 			children = (
 				94C8BA921CCDE5610016CFFB /* ZWVideoFrame */,
 				94C8BAA71CCDE5620016CFFB /* ZWVideoFrameTests */,
 				94C8BA911CCDE5610016CFFB /* Products */,
+				61256B78509E953AD7298F15 /* Pods */,
+				BCB93A7A16FF920CFE002A37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +228,18 @@
 		94C8BA921CCDE5610016CFFB /* ZWVideoFrame */ = {
 			isa = PBXGroup;
 			children = (
+				94B8BCED1CCFC2DD00B4DEE0 /* Vonder */,
+				94C433671CCFAD4A00CFBD64 /* CardViewController.swift */,
+				943F7D171CCFA7300016A87E /* BrowserView.swift */,
+				943F7D181CCFA7300016A87E /* BrowserViewController.swift */,
+				943F7D191CCFA7300016A87E /* SpringsViewController.swift */,
+				943F7D1A1CCFA7300016A87E /* ImportMusicalView.swift */,
+				943F7D1B1CCFA7300016A87E /* SpringConfigurationView.swift */,
+				943F7D1C1CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift */,
+				943F7D1D1CCFA7300016A87E /* SimpleTransform.swift */,
+				943F7D1E1CCFA7300016A87E /* SpringView.swift */,
 				94C8BA931CCDE5610016CFFB /* AppDelegate.swift */,
 				94C8BA951CCDE5610016CFFB /* ViewController.swift */,
-				94C8BA971CCDE5610016CFFB /* Main.storyboard */,
 				94C8BA9A1CCDE5610016CFFB /* Assets.xcassets */,
 				94C8BA9C1CCDE5620016CFFB /* LaunchScreen.storyboard */,
 				94C8BA9F1CCDE5620016CFFB /* Info.plist */,
@@ -96,6 +256,14 @@
 			path = ZWVideoFrameTests;
 			sourceTree = "<group>";
 		};
+		BCB93A7A16FF920CFE002A37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7745E0C2B0114419B9CC3CB /* Pods_ZWVideoFrame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94C8BAAD1CCDE5620016CFFB /* Build configuration list for PBXNativeTarget "ZWVideoFrame" */;
 			buildPhases = (
+				033F253F28C974E0CDCA5ECA /* Check Pods Manifest.lock */,
 				94C8BA8C1CCDE5610016CFFB /* Sources */,
 				94C8BA8D1CCDE5610016CFFB /* Frameworks */,
 				94C8BA8E1CCDE5610016CFFB /* Resources */,
+				6B902E4E323657104829FACC /* Embed Pods Frameworks */,
+				32A8BC6F4C700B63679E3ED1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,9 +348,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B8BD101CCFC2DD00B4DEE0 /* LICENSE in Resources */,
 				94C8BA9E1CCDE5620016CFFB /* LaunchScreen.storyboard in Resources */,
 				94C8BA9B1CCDE5610016CFFB /* Assets.xcassets in Resources */,
-				94C8BA991CCDE5610016CFFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +363,93 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		033F253F28C974E0CDCA5ECA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		32A8BC6F4C700B63679E3ED1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZWVideoFrame/Pods-ZWVideoFrame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B902E4E323657104829FACC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZWVideoFrame/Pods-ZWVideoFrame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		94C8BA8C1CCDE5610016CFFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				94C8BA961CCDE5610016CFFB /* ViewController.swift in Sources */,
+				94B8BD141CCFC2DD00B4DEE0 /* Channel.swift in Sources */,
+				94B8BD191CCFC2DD00B4DEE0 /* NumberTypes.swift in Sources */,
+				94B8BD211CCFC2DD00B4DEE0 /* DiagramModel.swift in Sources */,
+				94B8BD201CCFC2DD00B4DEE0 /* ChannelSourceMapper.swift in Sources */,
+				94B8BD171CCFC2DD00B4DEE0 /* Error.swift in Sources */,
+				943F7D211CCFA7300016A87E /* SpringsViewController.swift in Sources */,
+				943F7D221CCFA7300016A87E /* ImportMusicalView.swift in Sources */,
+				94B8BD0F1CCFC2DD00B4DEE0 /* DVGWaveformView.swift in Sources */,
+				94B8BD131CCFC2DD00B4DEE0 /* Buffer.swift in Sources */,
+				943F7D251CCFA7300016A87E /* SimpleTransform.swift in Sources */,
+				94B8BD1C1CCFC2DD00B4DEE0 /* Diagram.swift in Sources */,
+				94B8BD1A1CCFC2DD00B4DEE0 /* Protocols.swift in Sources */,
+				94B8BD161CCFC2DD00B4DEE0 /* Dispatch.swift in Sources */,
+				943F7D231CCFA7300016A87E /* SpringConfigurationView.swift in Sources */,
+				943F7D261CCFA7300016A87E /* SpringView.swift in Sources */,
+				943F7D201CCFA7300016A87E /* BrowserViewController.swift in Sources */,
+				94B8BD0D1CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagram.swift in Sources */,
+				94B8BD221CCFC2DD00B4DEE0 /* PlotModel.swift in Sources */,
+				94B8BD111CCFC2DD00B4DEE0 /* AudioReaderSettings.swift in Sources */,
+				94B8BD0C1CCFC2DD00B4DEE0 /* ScalableChannelsContainer.swift in Sources */,
+				94B8BD1B1CCFC2DD00B4DEE0 /* UIKit+extensions.swift in Sources */,
+				94B8BD181CCFC2DD00B4DEE0 /* LogicProvider.swift in Sources */,
 				94C8BA941CCDE5610016CFFB /* AppDelegate.swift in Sources */,
+				94B8BD151CCFC2DD00B4DEE0 /* DiagramGeometry.swift in Sources */,
+				94C433681CCFAD4A00CFBD64 /* CardViewController.swift in Sources */,
+				94B8BD1F1CCFC2DD00B4DEE0 /* SelectionView.swift in Sources */,
+				94B8BD0B1CCFC2DD00B4DEE0 /* AudioSamplesReader.swift in Sources */,
+				94B8BD1D1CCFC2DD00B4DEE0 /* PlaybackPositionView.swift in Sources */,
+				94B8BD0E1CCFC2DD00B4DEE0 /* DVGAudioWaveformDiagramModel.swift in Sources */,
+				943F7D1F1CCFA7300016A87E /* BrowserView.swift in Sources */,
+				94B8BD121CCFC2DD00B4DEE0 /* AudioSamplesContainer.swift in Sources */,
+				94B8BD1E1CCFC2DD00B4DEE0 /* Plot.swift in Sources */,
+				943F7D241CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +472,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		94C8BA971CCDE5610016CFFB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94C8BA981CCDE5610016CFFB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		94C8BA9C1CCDE5620016CFFB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -325,9 +568,11 @@
 		};
 		94C8BAAE1CCDE5620016CFFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81D02EED2FB6BE257D62BC52 /* Pods-ZWVideoFrame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZWVideoFrame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhiliaoapp.test.ZWVideoFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -336,9 +581,11 @@
 		};
 		94C8BAAF1CCDE5620016CFFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35508F43184428AC048BB29A /* Pods-ZWVideoFrame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZWVideoFrame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhiliaoapp.test.ZWVideoFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,6 +635,7 @@
 				94C8BAAF1CCDE5620016CFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94C8BAB01CCDE5620016CFFB /* Build configuration list for PBXNativeTarget "ZWVideoFrameTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +644,7 @@
 				94C8BAB21CCDE5620016CFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

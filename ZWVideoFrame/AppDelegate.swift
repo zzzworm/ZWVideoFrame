@@ -16,7 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+
+        let s = SpringsViewController()
+        let g = SpringsViewController()
+        
+        let navRoot = UINavigationController.init()
+        navRoot.navigationBar.backgroundColor = UIColor.clearColor()
+        navRoot.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navRoot.navigationBar.translucent = true
+        navRoot.navigationBar.shadowImage = UIImage()
+        
+        let workspaceVC = BrowserViewController(viewControllers: [ g,s])
+        navRoot.viewControllers = [workspaceVC]
+        
+        window?.rootViewController = navRoot
+        window?.makeKeyAndVisible()
+        
         return true
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
