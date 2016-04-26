@@ -45,7 +45,7 @@ final class ImportMusicalView: UIView {
         importButton.tintColor = UIColor.whiteColor()
         importButton.backgroundColor = UIColor.purpleColor()
         importButton.layer.masksToBounds = true;
-        importButton.layer.cornerRadius = 5.0;
+        importButton.layer.cornerRadius = 2.0;
         importButton.sizeToFit()
         
         addSubview(importButton)
@@ -58,7 +58,6 @@ final class ImportMusicalView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        importButton.center = CGPoint(x: bounds.midX, y: bounds.midY)
 
     }
     

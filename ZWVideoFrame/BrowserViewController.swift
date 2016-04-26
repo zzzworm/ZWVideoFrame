@@ -48,6 +48,7 @@ final class BrowserViewController: UIViewController {
     let blurSpring = Spring(value: CGFloat.zero)
     
     let browserView = BrowserView(frame: CGRect.zero)
+    let importMusicalView = ImportMusicalView(frame: CGRect.zero)
     
     required init(viewControllers: [CardViewController]) {
         self.viewControllers = viewControllers
@@ -82,12 +83,11 @@ final class BrowserViewController: UIViewController {
         backgroundDimmingView.alpha = 0.3
         view.addSubview(backgroundDimmingView)
         
-        let cv = ImportMusicalView(frame: CGRect(x: 320.0 - 44.0, y: 0.0, width: 320.0, height: 44.0))
-        browserView.importMusicalView = cv
-        
-        
         
         view.addSubview(browserView)
+        
+        view .addSubview(importMusicalView)
+        
         browserView.delegate = self
         
         browserView.items = viewControllers.map({ (vc) -> DemoItem in
@@ -107,6 +107,8 @@ final class BrowserViewController: UIViewController {
         blurredBackgroundImageView.frame = view.bounds
         backgroundDimmingView.frame = view.bounds
         browserView.frame = view.bounds
+        importMusicalView.frame.size = CGSize.init(width: view.bounds.width, height: 44)
+        importMusicalView.frame.origin = CGPoint(x: 0, y: view.bounds.maxY - 44)
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -148,5 +150,13 @@ extension BrowserViewController: BrowserViewDelegate {
         blurAmount = min(blurAmount, 1.0)
         blurAmount = max(blurAmount, 0.0)
         blurSpring.target = blurAmount
+        
+
+        
+        var coverVisibility = 1.0 - (browserView.currentIndex - floor(browserView.currentIndex))
+        coverVisibility = min(coverVisibility, 1.0)
+        coverVisibility = max(coverVisibility, 0.0)
+
+        importMusicalView.alpha = 0.5 + CGFloat(coverVisibility*0.5)
     }
 }

@@ -28,6 +28,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import UIKit
 import Advance
+import PureLayout
 
 class BrowserItem: NSObject {
     
@@ -251,17 +252,6 @@ class BrowserView: UIView {
         return s
     }()
     
-    var importMusicalView: ImportMusicalView? = nil {
-        didSet {
-            guard importMusicalView !== oldValue else { return }
-            oldValue?.removeFromSuperview()
-            if let v = importMusicalView {
-                addSubview(v)
-            }
-            setNeedsLayout()
-        }
-    }
-    
     
     var currentIndex: CGFloat {
         return index.value
@@ -307,6 +297,7 @@ class BrowserView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -341,21 +332,6 @@ class BrowserView: UIView {
         updateVisibleItems()
         
         
-        // If present, update the cover view.
-        if let importMusicalView = importMusicalView {
-            let cvVis = coverVisibilty.value
-            
-            let initialCenter = CGPoint(x: bounds.midX, y: bounds.maxY - 22)
-            let finalCenter = CGPoint(x: bounds.midX, y: bounds.maxY - 22)
-            importMusicalView.center = initialCenter.interpolatedTo(finalCenter, alpha: 1.0-Scalar(cvVis))
-            
-            importMusicalView.alpha = 0.5 + CGFloat(cvVis*0.5)
-        }
-        
-        var coverVisibility = 1.0 - (currentIndex - floor(currentIndex))
-        coverVisibility = min(coverVisibility, 1.0)
-        coverVisibility = max(coverVisibility, 0.0)
-        coverVisibilty.target = coverVisibility
     }
     
     private func updateAllItems(animated: Bool) {
