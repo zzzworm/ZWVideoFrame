@@ -3,6 +3,7 @@ PODS:
   - EasyTipView (0.1.8)
   - FDTake (0.3.2)
   - PureLayout (3.0.1)
+  - Ruler (0.7.0)
   - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
@@ -10,6 +11,7 @@ DEPENDENCIES:
   - EasyTipView (~> 0.1.3)
   - FDTake
   - PureLayout
+  - Ruler
   - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
@@ -17,6 +19,7 @@ SPEC CHECKSUMS:
   EasyTipView: b4ea591d23b76d63d7b5680fd3edb07094318c9d
   FDTake: 122aaf465673b05648cd1b40200a19c85b1aa9e0
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  Ruler: 51bd16cc00638702ef71713f80073588a6c7e682
   TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
 COCOAPODS: 0.39.0

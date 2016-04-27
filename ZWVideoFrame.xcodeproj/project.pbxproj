@@ -39,6 +39,9 @@
 		94954AB11CD05339001D24E8 /* ChannelSourceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954A991CD05339001D24E8 /* ChannelSourceMapper.swift */; };
 		94954AB21CD05339001D24E8 /* DiagramModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954A9A1CD05339001D24E8 /* DiagramModel.swift */; };
 		94954AB31CD05339001D24E8 /* PlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954A9B1CD05339001D24E8 /* PlotModel.swift */; };
+		94954AB91CD0A657001D24E8 /* FrameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954AB81CD0A657001D24E8 /* FrameSelectionViewController.swift */; };
+		94954ABB1CD0A70D001D24E8 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954ABA1CD0A70D001D24E8 /* Frame.swift */; };
+		94954ABD1CD0A877001D24E8 /* FrameCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */; };
 		94C433681CCFAD4A00CFBD64 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C433671CCFAD4A00CFBD64 /* CardViewController.swift */; };
 		94C8BA941CCDE5610016CFFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BA931CCDE5610016CFFB /* AppDelegate.swift */; };
 		94C8BA961CCDE5610016CFFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BA951CCDE5610016CFFB /* ViewController.swift */; };
@@ -93,6 +96,9 @@
 		94954A991CD05339001D24E8 /* ChannelSourceMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelSourceMapper.swift; sourceTree = "<group>"; };
 		94954A9A1CD05339001D24E8 /* DiagramModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagramModel.swift; sourceTree = "<group>"; };
 		94954A9B1CD05339001D24E8 /* PlotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotModel.swift; sourceTree = "<group>"; };
+		94954AB81CD0A657001D24E8 /* FrameSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameSelectionViewController.swift; path = ZWVideoFrame/Frame/FrameSelectionViewController.swift; sourceTree = SOURCE_ROOT; };
+		94954ABA1CD0A70D001D24E8 /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Frame.swift; path = ZWVideoFrame/Frame/Frame.swift; sourceTree = SOURCE_ROOT; };
+		94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameCollectionCell.swift; path = ZWVideoFrame/Frame/FrameCollectionCell.swift; sourceTree = SOURCE_ROOT; };
 		94C433671CCFAD4A00CFBD64 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		94C8BA901CCDE5610016CFFB /* ZWVideoFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWVideoFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C8BA931CCDE5610016CFFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +211,25 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		94954AB61CD0A615001D24E8 /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				94954AB81CD0A657001D24E8 /* FrameSelectionViewController.swift */,
+				94954ABA1CD0A70D001D24E8 /* Frame.swift */,
+				94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */,
+			);
+			name = Frame;
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		94954AB71CD0A61E001D24E8 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Layout;
+			path = Vender;
+			sourceTree = "<group>";
+		};
 		94C8BA871CCDE5610016CFFB = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +253,8 @@
 		94C8BA921CCDE5610016CFFB /* ZWVideoFrame */ = {
 			isa = PBXGroup;
 			children = (
+				94954AB71CD0A61E001D24E8 /* Layout */,
+				94954AB61CD0A615001D24E8 /* Frame */,
 				94954A7E1CD05339001D24E8 /* Vender */,
 				94C433671CCFAD4A00CFBD64 /* CardViewController.swift */,
 				943F7D171CCFA7300016A87E /* BrowserView.swift */,
@@ -417,13 +444,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C8BA961CCDE5610016CFFB /* ViewController.swift in Sources */,
+				94954ABD1CD0A877001D24E8 /* FrameCollectionCell.swift in Sources */,
 				94954AA51CD05339001D24E8 /* Channel.swift in Sources */,
 				94954AAA1CD05339001D24E8 /* NumberTypes.swift in Sources */,
 				94954AB21CD05339001D24E8 /* DiagramModel.swift in Sources */,
 				94954AB11CD05339001D24E8 /* ChannelSourceMapper.swift in Sources */,
+				94954AB91CD0A657001D24E8 /* FrameSelectionViewController.swift in Sources */,
 				94954AA81CD05339001D24E8 /* Error.swift in Sources */,
 				943F7D211CCFA7300016A87E /* SpringsViewController.swift in Sources */,
 				943F7D221CCFA7300016A87E /* ImportMusicalView.swift in Sources */,
+				94954ABB1CD0A70D001D24E8 /* Frame.swift in Sources */,
 				94954AA01CD05339001D24E8 /* DVGWaveformView.swift in Sources */,
 				94954AA41CD05339001D24E8 /* Buffer.swift in Sources */,
 				943F7D251CCFA7300016A87E /* SimpleTransform.swift in Sources */,
