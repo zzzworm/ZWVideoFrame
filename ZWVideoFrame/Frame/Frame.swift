@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Frame: NSObject {
-    let boderWith : UInt = 0
-    let width : UInt = 100
-    let height : UInt = 100
+class FrameConfig: NSObject {
+    let boderWith : CGFloat = 1.0
+    let width : CGFloat = 100.0
+    let height : CGFloat = 100.0
     
 }

@@ -9,12 +9,20 @@
 import UIKit
 
 class FrameManager: NSObject {
-    var frames : [Frame]?
+    var frames : [FrameConfig] = []
     
     required override init() {
         super.init()
-        let simpleFrame = Frame()
-        frames?.append(simpleFrame)
+        let simpleFrame = FrameConfig()
+        frames.append(simpleFrame)
         
     }
+    
+    class var sharedInstance: FrameManager {
+        struct Static {
+            static let instance: FrameManager = FrameManager()
+        }
+        return Static.instance
+    }
+
 }

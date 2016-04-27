@@ -49,6 +49,8 @@
 		94C8BA9B1CCDE5610016CFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C8BA9A1CCDE5610016CFFB /* Assets.xcassets */; };
 		94C8BA9E1CCDE5620016CFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C8BA9C1CCDE5620016CFFB /* LaunchScreen.storyboard */; };
 		94C8BAA91CCDE5620016CFFB /* ZWVideoFrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BAA81CCDE5620016CFFB /* ZWVideoFrameTests.swift */; };
+		94D7F3CB1CD0C61600986779 /* ZWShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7F3CA1CD0C61600986779 /* ZWShapeView.swift */; };
+		94D7F3CD1CD0CA6D00986779 /* FrameCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D7F3CC1CD0CA6D00986779 /* FrameCollectionCell.xib */; };
 		DBBAC999A43B5B50CA46551B /* Pods_ZWVideoFrame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7745E0C2B0114419B9CC3CB /* Pods_ZWVideoFrame.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,8 @@
 		94C8BAA41CCDE5620016CFFB /* ZWVideoFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZWVideoFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C8BAA81CCDE5620016CFFB /* ZWVideoFrameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWVideoFrameTests.swift; sourceTree = "<group>"; };
 		94C8BAAA1CCDE5620016CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94D7F3CA1CD0C61600986779 /* ZWShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZWShapeView.swift; sourceTree = "<group>"; };
+		94D7F3CC1CD0CA6D00986779 /* FrameCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FrameCollectionCell.xib; path = ZWVideoFrame/Frame/FrameCollectionCell.xib; sourceTree = SOURCE_ROOT; };
 		B7745E0C2B0114419B9CC3CB /* Pods_ZWVideoFrame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZWVideoFrame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -220,6 +224,7 @@
 				94954ABA1CD0A70D001D24E8 /* Frame.swift */,
 				94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */,
 				9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */,
+				94D7F3CC1CD0CA6D00986779 /* FrameCollectionCell.xib */,
 			);
 			name = Frame;
 			path = Vender;
@@ -273,6 +278,7 @@
 				94C8BA9A1CCDE5610016CFFB /* Assets.xcassets */,
 				94C8BA9C1CCDE5620016CFFB /* LaunchScreen.storyboard */,
 				94C8BA9F1CCDE5620016CFFB /* Info.plist */,
+				94D7F3CA1CD0C61600986779 /* ZWShapeView.swift */,
 			);
 			path = ZWVideoFrame;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			files = (
 				94954AA11CD05339001D24E8 /* LICENSE in Resources */,
 				94C8BA9E1CCDE5620016CFFB /* LaunchScreen.storyboard in Resources */,
+				94D7F3CD1CD0CA6D00986779 /* FrameCollectionCell.xib in Resources */,
 				94C8BA9B1CCDE5610016CFFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +468,7 @@
 				94954AA41CD05339001D24E8 /* Buffer.swift in Sources */,
 				943F7D251CCFA7300016A87E /* SimpleTransform.swift in Sources */,
 				94954AAD1CD05339001D24E8 /* Diagram.swift in Sources */,
+				94D7F3CB1CD0C61600986779 /* ZWShapeView.swift in Sources */,
 				94954AAB1CD05339001D24E8 /* Protocols.swift in Sources */,
 				94954AA71CD05339001D24E8 /* Dispatch.swift in Sources */,
 				943F7D231CCFA7300016A87E /* SpringConfigurationView.swift in Sources */,

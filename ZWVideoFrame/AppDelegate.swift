@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
 
-        let s = SpringsViewController()
+        let s = FrameSelectionViewController()
         let g = SpringsViewController()
         
         let navRoot = UINavigationController.init()

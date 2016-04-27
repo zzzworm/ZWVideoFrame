@@ -11,32 +11,36 @@ import UIKit
 import Ruler
 
 protocol ReturnPickedFrameDelegate: class {
-    func returnSelectedFrame(frame: [Frame])
+    func returnSelectedFrame(frame: [FrameConfig])
 }
 
-class FrameSelectionViewController: UICollectionViewController {
+class FrameSelectionViewController: CardViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
-    let photoCellID = "PhotoCell"
-    
+    let frameCellID = "frameCell"
+    var collectionView : UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(NSLocalizedString("Pick frame", comment: ""))"
         
-        collectionView?.backgroundColor = UIColor.whiteColor()
-        collectionView?.alwaysBounceVertical = true
-        collectionView?.registerNib(UINib(nibName: photoCellID, bundle: nil), forCellWithReuseIdentifier: photoCellID)
+        let layout = UICollectionViewFlowLayout()
         
-        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            
-            let width: CGFloat = Ruler<CGFloat>.iPhoneVertical(77.5, 77.5, 92.5, 102).value
-            let height = width
-            layout.itemSize = CGSize(width: width, height: height)
-            
-            let gap: CGFloat = Ruler<CGFloat>.iPhoneHorizontal(1, 1, 1).value
-            layout.minimumInteritemSpacing = gap
-            layout.minimumLineSpacing = gap
-            layout.sectionInset = UIEdgeInsets(top: gap, left: gap, bottom: gap, right: gap)
-        }
+        let width: CGFloat = Ruler<CGFloat>.iPhoneVertical(77.5, 77.5, 92.5, 102).value
+        let height = width
+        layout.itemSize = CGSize(width: width, height: height)
+        
+        let gap: CGFloat = Ruler<CGFloat>.iPhoneHorizontal(1, 1, 1).value
+        layout.minimumInteritemSpacing = gap
+        layout.minimumLineSpacing = gap
+        layout.sectionInset = UIEdgeInsets(top: gap, left: gap, bottom: gap, right: gap)
+
+        
+        collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.alwaysBounceVertical = true
+        collectionView.registerNib(UINib.init(nibName: "FrameCollectionCell", bundle: nil), forCellWithReuseIdentifier:frameCellID)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        self.view.addSubview(collectionView)
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_back"), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
         navigationItem.leftBarButtonItem = backBarButtonItem
@@ -47,25 +51,31 @@ class FrameSelectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let itemCount = FrameManager.sharedInstance.frames.count
+        return itemCount
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoCellID, forIndexPath: indexPath) as! FrameCollectionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(frameCellID, forIndexPath: indexPath) as! FrameCollectionCell
+        cell.frameConfig = FrameManager.sharedInstance.frames[indexPath.row]
         return cell
     }
     
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
 
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        collectionView.autoPinEdgesToSuperviewEdges()
+    }
 
 }
 
@@ -81,5 +91,12 @@ extension FrameSelectionViewController: UIGestureRecognizerDelegate {
             return true
         }
         return false
+    }
+}
+
+extension FrameSelectionViewController:UICollectionViewDelegateFlowLayout
+{
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize.init(width: 80, height: 80);
     }
 }

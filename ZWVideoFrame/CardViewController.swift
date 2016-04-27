@@ -27,6 +27,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 import UIKit
+import PureLayout
 
 class CardViewController: UIViewController {
     
@@ -111,26 +112,19 @@ class CardViewController: UIViewController {
         titleLabel.alpha = 1.0
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        contentView.frame = view.bounds
-        
-        let labelHeight = noteLabel.sizeThatFits(CGSize(width: view.bounds.width-64.0, height: CGFloat.max)).height
-        var labelFrame = CGRect.zero
-        labelFrame.origin.x = 32.0
-        labelFrame.origin.y = 32.0
-        labelFrame.size.width = view.bounds.width - 64.0
-        labelFrame.size.height = labelHeight
-        noteLabel.frame = labelFrame
-        
-        let titleHeight = titleLabel.sizeThatFits(CGSize(width: view.bounds.width-64.0, height: CGFloat.max)).height
-        var titleFrame = CGRect.zero
-        titleFrame.origin.x = 32.0
-        titleFrame.origin.y = 32.0
-        titleFrame.size.width = view.bounds.width - 64.0
-        titleFrame.size.height = titleHeight
-        titleLabel.frame = titleFrame
-    }
     
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        noteLabel.autoPinEdgeToSuperviewEdge(ALEdge.Left, withInset: 32)
+        noteLabel.autoPinEdgeToSuperviewEdge(ALEdge.Top, withInset: 32)
+        noteLabel.autoPinEdgeToSuperviewEdge(ALEdge.Right, withInset: 64)
+        noteLabel.autoSetDimension(ALDimension.Height, toSize: 32)
+        
+        //titleLabel
+        titleLabel.autoPinEdgeToSuperviewEdge(ALEdge.Left, withInset: 32)
+        titleLabel.autoPinEdgeToSuperviewEdge(ALEdge.Top, withInset: 32)
+        titleLabel.autoPinEdgeToSuperviewEdge(ALEdge.Right, withInset: 64)
+        titleLabel.autoSetDimension(ALDimension.Height, toSize: 32)
+    }
+
 }
