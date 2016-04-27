@@ -24,7 +24,7 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         
         let layout = UICollectionViewFlowLayout()
         
-        let width: CGFloat = Ruler<CGFloat>.iPhoneVertical(77.5, 77.5, 92.5, 102).value
+        let width: CGFloat = Ruler<CGFloat>.iPhoneVertical(177.5, 177.5, 192.5, 202).value
         let height = width
         layout.itemSize = CGSize(width: width, height: height)
         
@@ -37,7 +37,7 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.alwaysBounceVertical = true
-        collectionView.registerNib(UINib.init(nibName: "FrameCollectionCell", bundle: nil), forCellWithReuseIdentifier:frameCellID)
+        collectionView.registerClass(FrameCollectionCell.self, forCellWithReuseIdentifier: frameCellID)
         collectionView.dataSource = self
         collectionView.delegate = self
         self.view.addSubview(collectionView)
@@ -63,7 +63,7 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(frameCellID, forIndexPath: indexPath) as! FrameCollectionCell
-        cell.frameConfig = FrameManager.sharedInstance.frames[indexPath.row]
+        cell.configFrameConfig(FrameManager.sharedInstance.frames[indexPath.row])
         return cell
     }
     
@@ -97,6 +97,6 @@ extension FrameSelectionViewController: UIGestureRecognizerDelegate {
 extension FrameSelectionViewController:UICollectionViewDelegateFlowLayout
 {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize.init(width: 80, height: 80);
+        return CGSize.init(width: 80, height: 180);
     }
 }

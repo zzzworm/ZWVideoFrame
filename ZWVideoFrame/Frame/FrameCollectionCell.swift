@@ -11,33 +11,30 @@ import PureLayout
 
 class FrameCollectionCell: UICollectionViewCell {
     let frameView: UIView = UIView()
-    
-    @IBOutlet weak var testLabel: UILabel!
-    
+    let label = UILabel()
     var frameConfig : FrameConfig?
     
     required override init(frame: CGRect) {
         super.init(frame:frame)
         
-        testLabel.text = "hello"
+        label.text = "hello"
         self.contentView.addSubview(frameView)
-        self.contentView.addSubview(testLabel)
+        self.contentView.addSubview(label)
+        self.updateConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.contentView.addSubview(frameView)
-
+        fatalError("init(coder:) has not been implemented")
     }
     
-//    override func updateConstraints() {
-//        super.updateConstraints()
-//        frameView.autoPinEdgesToSuperviewEdges()
-//        testLabel.autoSetDimensionsToSize(CGSize.init(width: 32, height: 100))
-//        testLabel.autoPinEdgeToSuperviewEdge(ALEdge.Left, withInset: 4)
-//        testLabel.autoPinEdgeToSuperviewEdge(ALEdge.Top, withInset: 4)
-//        
-//    }
+    override func updateConstraints() {
+        super.updateConstraints()
+        frameView.autoPinEdgesToSuperviewEdges()
+        label.autoSetDimensionsToSize(CGSize.init(width: 132, height: 32))
+        label.autoPinEdgeToSuperviewEdge(ALEdge.Left, withInset: 4)
+        label.autoPinEdgeToSuperviewEdge(ALEdge.Top, withInset: 4)
+        
+    }
     
     func configFrameConfig(frameConfig:FrameConfig) -> Void {
         let shapePath = CGPathCreateMutable()
@@ -48,7 +45,7 @@ class FrameCollectionCell: UICollectionViewCell {
         frameShapeLayer.strokeColor = UIColor.greenColor().CGColor
         frameShapeLayer.borderColor = UIColor.blackColor().CGColor
         frameShapeLayer.fillColor = UIColor.blueColor().CGColor
-        frameView.layer.mask = frameShapeLayer
+        frameView.layer.addSublayer(frameShapeLayer)
         self.frameConfig = frameConfig
     }
 }
