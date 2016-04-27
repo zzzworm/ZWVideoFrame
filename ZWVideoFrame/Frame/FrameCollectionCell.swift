@@ -7,7 +7,24 @@
 //
 
 import UIKit
+import PureLayout
 
 class FrameCollectionCell: UICollectionViewCell {
-
+    let frameView: UIView = UIView()
+    let frameShapeLayer: CAShapeLayer = CAShapeLayer()
+    
+    required override init(frame: CGRect) {
+        super.init(frame:frame)
+        frameView.layer.addSublayer(frameShapeLayer)
+        self.contentView.addSubview(frameView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        frameView.autoPinEdgesToSuperviewEdges()
+    }
 }

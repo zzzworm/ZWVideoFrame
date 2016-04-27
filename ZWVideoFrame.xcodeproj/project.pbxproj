@@ -15,6 +15,7 @@
 		943F7D241CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1C1CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift */; };
 		943F7D251CCFA7300016A87E /* SimpleTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1D1CCFA7300016A87E /* SimpleTransform.swift */; };
 		943F7D261CCFA7300016A87E /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1E1CCFA7300016A87E /* SpringView.swift */; };
+		9474139E1CD0B0CA00D8EEA6 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */; };
 		94954A9C1CD05339001D24E8 /* AudioSamplesReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954A811CD05339001D24E8 /* AudioSamplesReader.swift */; };
 		94954A9D1CD05339001D24E8 /* ScalableChannelsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954A821CD05339001D24E8 /* ScalableChannelsContainer.swift */; };
 		94954A9E1CD05339001D24E8 /* DVGAudioWaveformDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954A831CD05339001D24E8 /* DVGAudioWaveformDiagram.swift */; };
@@ -72,6 +73,7 @@
 		943F7D1C1CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectManipulationGestureRecognizer.swift; sourceTree = "<group>"; };
 		943F7D1D1CCFA7300016A87E /* SimpleTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTransform.swift; sourceTree = "<group>"; };
 		943F7D1E1CCFA7300016A87E /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
+		9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameManager.swift; path = ZWVideoFrame/Frame/FrameManager.swift; sourceTree = SOURCE_ROOT; };
 		94954A811CD05339001D24E8 /* AudioSamplesReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSamplesReader.swift; sourceTree = "<group>"; };
 		94954A821CD05339001D24E8 /* ScalableChannelsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableChannelsContainer.swift; sourceTree = "<group>"; };
 		94954A831CD05339001D24E8 /* DVGAudioWaveformDiagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVGAudioWaveformDiagram.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				94954AB81CD0A657001D24E8 /* FrameSelectionViewController.swift */,
 				94954ABA1CD0A70D001D24E8 /* Frame.swift */,
 				94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */,
+				9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */,
 			);
 			name = Frame;
 			path = Vender;
@@ -474,6 +477,7 @@
 				94C433681CCFAD4A00CFBD64 /* CardViewController.swift in Sources */,
 				94954AB01CD05339001D24E8 /* SelectionView.swift in Sources */,
 				94954A9C1CD05339001D24E8 /* AudioSamplesReader.swift in Sources */,
+				9474139E1CD0B0CA00D8EEA6 /* FrameManager.swift in Sources */,
 				94954AAE1CD05339001D24E8 /* PlaybackPositionView.swift in Sources */,
 				94954A9F1CD05339001D24E8 /* DVGAudioWaveformDiagramModel.swift in Sources */,
 				943F7D1F1CCFA7300016A87E /* BrowserView.swift in Sources */,

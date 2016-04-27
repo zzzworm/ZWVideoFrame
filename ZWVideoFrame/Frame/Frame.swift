@@ -9,5 +9,8 @@
 import UIKit
 
 class Frame: NSObject {
-
+    let boderWith : UInt = 0
+    let width : UInt = 100
+    let height : UInt = 100
+    
 }
