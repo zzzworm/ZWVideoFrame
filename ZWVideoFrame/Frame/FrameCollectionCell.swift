@@ -13,6 +13,8 @@ class FrameCollectionCell: UICollectionViewCell {
     let frameView: UIView = UIView()
     let label = UILabel()
     var frameConfig : FrameConfig?
+    var actionView : UIView?
+    var actionHanler : ((sender:AnyObject?) -> Void)?
     
     required override init(frame: CGRect) {
         super.init(frame:frame)
@@ -37,15 +39,18 @@ class FrameCollectionCell: UICollectionViewCell {
     }
     
     func configFrameConfig(frameConfig:FrameConfig) -> Void {
-        let shapePath = CGPathCreateMutable()
-        CGPathAddRect(shapePath, nil, CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: CGSize.init(width: frameConfig.width, height: frameConfig.height)))
-        let frameShapeLayer: CAShapeLayer = CAShapeLayer()
-        frameShapeLayer.path = shapePath
-        frameShapeLayer.borderWidth = frameConfig.boderWith
-        frameShapeLayer.strokeColor = UIColor.greenColor().CGColor
-        frameShapeLayer.borderColor = UIColor.blackColor().CGColor
-        frameShapeLayer.fillColor = UIColor.blueColor().CGColor
-        frameView.layer.addSublayer(frameShapeLayer)
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
+        actionView = frameConfig.drawShapView(frameView)
+        let gestureReconizer = UITapGestureRecognizer.init(target: self, action: #selector(actionViewTapped))
+        
+        actionView?.addGestureRecognizer(gestureReconizer);
         self.frameConfig = frameConfig
+    }
+    
+    func actionViewTapped(sender:AnyObject?) {
+        if let hander = actionHanler {
+            hander(sender: sender)
+        }
     }
 }

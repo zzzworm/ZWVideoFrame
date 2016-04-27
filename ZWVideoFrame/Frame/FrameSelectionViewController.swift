@@ -9,6 +9,7 @@
 
 import UIKit
 import Ruler
+import FDTake
 
 protocol ReturnPickedFrameDelegate: class {
     func returnSelectedFrame(frame: [FrameConfig])
@@ -18,13 +19,15 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
 
     let frameCellID = "frameCell"
     var collectionView : UICollectionView!
+    var fdTakeController : FDTakeController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(NSLocalizedString("Pick frame", comment: ""))"
         
         let layout = UICollectionViewFlowLayout()
         
-        let width: CGFloat = Ruler<CGFloat>.iPhoneVertical(177.5, 177.5, 192.5, 202).value
+        let width: CGFloat = Ruler<CGFloat>.iPhoneVertical(77.5, 77.5, 92.5, 102).value
         let height = width
         layout.itemSize = CGSize(width: width, height: height)
         
@@ -64,6 +67,63 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(frameCellID, forIndexPath: indexPath) as! FrameCollectionCell
         cell.configFrameConfig(FrameManager.sharedInstance.frames[indexPath.row])
+        cell.actionHanler = {
+            (sender:AnyObject?) -> Void in
+            if nil == self.fdTakeController {
+                self.fdTakeController = FDTakeController()
+            }
+            let fdTakeVc = self.fdTakeController!
+            
+            fdTakeVc.allowsPhoto = true
+            fdTakeVc.allowsVideo = true
+            fdTakeVc.allowsTake = true
+            fdTakeVc.allowsSelectFromLibrary = true
+            fdTakeVc.allowsEditing = false
+            fdTakeVc.defaultsToFrontCamera = true
+            fdTakeVc.iPadUsesFullScreenCamera = true
+            fdTakeVc.didDeny = {
+                let alert = UIAlertController(title: "Denied", message: "User did not select a photo/video", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            self.fdTakeController!.didCancel = {
+                let alert = UIAlertController(title: "Cancelled", message: "User did cancel while selecting", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            self.fdTakeController!.didFail = {
+                let alert = UIAlertController(title: "Failed", message: "User selected but API failed", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            self.fdTakeController!.didGetPhoto = {
+                (photo: UIImage, info: [NSObject : AnyObject]) -> Void in
+                let alert = UIAlertController(title: "Got photo", message: "User selected photo", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                
+                // http://stackoverflow.com/a/34487871/300224
+                let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+                alertWindow.rootViewController = UIViewController()
+                alertWindow.windowLevel = UIWindowLevelAlert + 1;
+                alertWindow.makeKeyAndVisible()
+                alertWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            }
+            self.fdTakeController!.didGetVideo = {
+                (video: NSURL, info: [NSObject : AnyObject]) -> Void in
+                let alert = UIAlertController(title: "Got photo", message: "User selected photo", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                
+                // http://stackoverflow.com/a/34487871/300224
+                let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+                alertWindow.rootViewController = UIViewController()
+                alertWindow.windowLevel = UIWindowLevelAlert + 1;
+                alertWindow.makeKeyAndVisible()
+                alertWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            }
+
+            fdTakeVc.presentingView = self.view
+            fdTakeVc.present()
+        }
         return cell
     }
     
@@ -96,7 +156,7 @@ extension FrameSelectionViewController: UIGestureRecognizerDelegate {
 
 extension FrameSelectionViewController:UICollectionViewDelegateFlowLayout
 {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize.init(width: 80, height: 180);
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        return CGSize.init(width: 80, height: 180);
+//    }
 }

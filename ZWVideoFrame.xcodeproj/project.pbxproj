@@ -43,6 +43,7 @@
 		94954AB91CD0A657001D24E8 /* FrameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954AB81CD0A657001D24E8 /* FrameSelectionViewController.swift */; };
 		94954ABB1CD0A70D001D24E8 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954ABA1CD0A70D001D24E8 /* Frame.swift */; };
 		94954ABD1CD0A877001D24E8 /* FrameCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */; };
+		94B8BD241CD1049E00B4DEE0 /* VideoFrameShapeDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8BD231CD1049E00B4DEE0 /* VideoFrameShapeDrawable.swift */; };
 		94C433681CCFAD4A00CFBD64 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C433671CCFAD4A00CFBD64 /* CardViewController.swift */; };
 		94C8BA941CCDE5610016CFFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BA931CCDE5610016CFFB /* AppDelegate.swift */; };
 		94C8BA961CCDE5610016CFFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BA951CCDE5610016CFFB /* ViewController.swift */; };
@@ -50,7 +51,6 @@
 		94C8BA9E1CCDE5620016CFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C8BA9C1CCDE5620016CFFB /* LaunchScreen.storyboard */; };
 		94C8BAA91CCDE5620016CFFB /* ZWVideoFrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8BAA81CCDE5620016CFFB /* ZWVideoFrameTests.swift */; };
 		94D7F3CB1CD0C61600986779 /* ZWShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D7F3CA1CD0C61600986779 /* ZWShapeView.swift */; };
-		94D7F3CD1CD0CA6D00986779 /* FrameCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D7F3CC1CD0CA6D00986779 /* FrameCollectionCell.xib */; };
 		DBBAC999A43B5B50CA46551B /* Pods_ZWVideoFrame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7745E0C2B0114419B9CC3CB /* Pods_ZWVideoFrame.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +103,7 @@
 		94954AB81CD0A657001D24E8 /* FrameSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameSelectionViewController.swift; path = ZWVideoFrame/Frame/FrameSelectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		94954ABA1CD0A70D001D24E8 /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Frame.swift; path = ZWVideoFrame/Frame/Frame.swift; sourceTree = SOURCE_ROOT; };
 		94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameCollectionCell.swift; path = ZWVideoFrame/Frame/FrameCollectionCell.swift; sourceTree = SOURCE_ROOT; };
+		94B8BD231CD1049E00B4DEE0 /* VideoFrameShapeDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoFrameShapeDrawable.swift; sourceTree = "<group>"; };
 		94C433671CCFAD4A00CFBD64 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		94C8BA901CCDE5610016CFFB /* ZWVideoFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWVideoFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C8BA931CCDE5610016CFFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		94C8BAA81CCDE5620016CFFB /* ZWVideoFrameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWVideoFrameTests.swift; sourceTree = "<group>"; };
 		94C8BAAA1CCDE5620016CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94D7F3CA1CD0C61600986779 /* ZWShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZWShapeView.swift; sourceTree = "<group>"; };
-		94D7F3CC1CD0CA6D00986779 /* FrameCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FrameCollectionCell.xib; path = ZWVideoFrame/Frame/FrameCollectionCell.xib; sourceTree = SOURCE_ROOT; };
 		B7745E0C2B0114419B9CC3CB /* Pods_ZWVideoFrame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZWVideoFrame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -224,7 +224,6 @@
 				94954ABA1CD0A70D001D24E8 /* Frame.swift */,
 				94954ABC1CD0A877001D24E8 /* FrameCollectionCell.swift */,
 				9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */,
-				94D7F3CC1CD0CA6D00986779 /* FrameCollectionCell.xib */,
 			);
 			name = Frame;
 			path = Vender;
@@ -279,6 +278,7 @@
 				94C8BA9C1CCDE5620016CFFB /* LaunchScreen.storyboard */,
 				94C8BA9F1CCDE5620016CFFB /* Info.plist */,
 				94D7F3CA1CD0C61600986779 /* ZWShapeView.swift */,
+				94B8BD231CD1049E00B4DEE0 /* VideoFrameShapeDrawable.swift */,
 			);
 			path = ZWVideoFrame;
 			sourceTree = "<group>";
@@ -386,7 +386,6 @@
 			files = (
 				94954AA11CD05339001D24E8 /* LICENSE in Resources */,
 				94C8BA9E1CCDE5620016CFFB /* LaunchScreen.storyboard in Resources */,
-				94D7F3CD1CD0CA6D00986779 /* FrameCollectionCell.xib in Resources */,
 				94C8BA9B1CCDE5610016CFFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +489,7 @@
 				94954A9F1CD05339001D24E8 /* DVGAudioWaveformDiagramModel.swift in Sources */,
 				943F7D1F1CCFA7300016A87E /* BrowserView.swift in Sources */,
 				94954AA31CD05339001D24E8 /* AudioSamplesContainer.swift in Sources */,
+				94B8BD241CD1049E00B4DEE0 /* VideoFrameShapeDrawable.swift in Sources */,
 				94954AAF1CD05339001D24E8 /* Plot.swift in Sources */,
 				943F7D241CCFA7300016A87E /* DirectManipulationGestureRecognizer.swift in Sources */,
 			);
