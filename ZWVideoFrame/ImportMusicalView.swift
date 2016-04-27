@@ -33,17 +33,15 @@ final class ImportMusicalView: UIView {
     
     let importButton = UIButton()
     
-    let waveformView = DVGAudioWaveformDiagram()
+    let waveformView = UIView()
 
     
     override init(frame: CGRect) {
          super.init(frame: frame)
         
-        
-        importButton.titleLabel?.text = "Song"
-        importButton.titleLabel?.font = UIFont.systemFontOfSize(12.0)
         importButton.tintColor = UIColor.whiteColor()
-        importButton.backgroundColor = UIColor.purpleColor()
+        importButton.setBackgroundImage(UIImage.init(imageLiteral: "songchart"), forState: UIControlState.Normal)
+        importButton.setBackgroundImage(UIImage.init(imageLiteral: "songchart"), forState: UIControlState.Selected)
         importButton.layer.masksToBounds = true;
         importButton.layer.cornerRadius = 2.0;
         importButton.sizeToFit()
@@ -65,8 +63,15 @@ final class ImportMusicalView: UIView {
         super.updateConstraints()
 
         
-        importButton.autoPinEdgeToSuperviewEdge(ALEdge.Left)
-        importButton.autoPinEdgeToSuperviewEdge(ALEdge.Top)
+        importButton.autoPinEdgeToSuperviewEdge(ALEdge.Left, withInset: 4)
+        importButton.autoPinEdgeToSuperviewEdge(ALEdge.Top ,withInset: 4)
+        importButton.autoSetDimension(ALDimension.Width, toSize: 36)
+        importButton.autoSetDimension(ALDimension.Height, toSize: 36)
+        
+        waveformView.autoPinEdge(ALEdge.Left, toEdge: ALEdge.Right, ofView: importButton, withOffset: 4)
+        waveformView.autoPinEdgeToSuperviewEdge(ALEdge.Right, withInset: 4)
+        waveformView.autoPinEdgeToSuperviewEdge(ALEdge.Top)
+        waveformView.autoPinEdgeToSuperviewEdge(ALEdge.Bottom)
         
     }
     

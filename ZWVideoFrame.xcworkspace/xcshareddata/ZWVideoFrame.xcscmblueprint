@@ -5,17 +5,24 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "E7C0E7132798C127569945CA51A7CCDF0C51718B" : 0,
+    "6FC01FA63000B3BE89C52A39EA3C2B412845EC60" : 0,
     "D157DF23270FAFDEDA8A62060C07F853DB4C6AAB" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5D41FC8A-A1FA-464A-A356-5DF28C17ABE3",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "E7C0E7132798C127569945CA51A7CCDF0C51718B" : "ZWVideoFrame\/",
+    "6FC01FA63000B3BE89C52A39EA3C2B412845EC60" : "..",
     "D157DF23270FAFDEDA8A62060C07F853DB4C6AAB" : "Waveform\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "ZWVideoFrame",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ZWVideoFrame.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/dev.zhiliaoapp.com:2222\/ios\/mus-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6FC01FA63000B3BE89C52A39EA3C2B412845EC60"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/denivip\/Waveform.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

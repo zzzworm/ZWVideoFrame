@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "background_blur.jpeg",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "songchart.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "songchart@2x.png"
     },
     {
       "idiom" : "universal",

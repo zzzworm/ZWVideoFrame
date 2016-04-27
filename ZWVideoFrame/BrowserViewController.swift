@@ -28,6 +28,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import UIKit
 import Advance
+import MediaPlayer
 
 private final class DemoItem: BrowserItem {
     let viewController: CardViewController
@@ -49,6 +50,8 @@ final class BrowserViewController: UIViewController {
     
     let browserView = BrowserView(frame: CGRect.zero)
     let importMusicalView = ImportMusicalView(frame: CGRect.zero)
+    var waveformVC : DVGWaveformController!
+    var mediaPicker: MPMediaPickerController?
     
     required init(viewControllers: [CardViewController]) {
         self.viewControllers = viewControllers
@@ -86,7 +89,7 @@ final class BrowserViewController: UIViewController {
         
         view.addSubview(browserView)
         
-        view .addSubview(importMusicalView)
+        view.addSubview(importMusicalView)
         
         browserView.delegate = self
         
@@ -98,7 +101,8 @@ final class BrowserViewController: UIViewController {
             self.blurredBackgroundImageView.alpha = b
         }
         
-//        browserView.showItem(browserView.items.first!)
+        self.waveformVC = DVGWaveformController(containerView: self.importMusicalView.waveformView)
+        self.importMusicalView.importButton.addTarget(self, action: #selector(onTapChooseSong), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -113,6 +117,31 @@ final class BrowserViewController: UIViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func onTapChooseSong(sender: AnyObject?) {
+        mediaPicker = MPMediaPickerController(mediaTypes: .AnyAudio)
+        
+        if let picker = mediaPicker{
+            
+            
+            print("Successfully instantiated a media picker")
+            picker.delegate = self
+            picker.allowsPickingMultipleItems = true
+            picker.showsCloudItems = true
+            picker.prompt = "Pick a song please..."
+            view.addSubview(picker.view)
+            
+            presentViewController(picker, animated: true, completion: nil)
+            
+        } else {
+            print("Could not instantiate a media picker")
+        }
+    }
+    
+    func configureWaveform() {
+        self.waveformVC.movementDelegate = self
+        self.waveformVC.numberOfPointsOnThePlot = 2000
     }
 }
 
@@ -158,5 +187,54 @@ extension BrowserViewController: BrowserViewDelegate {
         coverVisibility = max(coverVisibility, 0.0)
 
         importMusicalView.alpha = 0.5 + CGFloat(coverVisibility*0.5)
+    }
+}
+
+extension BrowserViewController: DVGDiagramMovementsDelegate
+{
+    func diagramDidSelect(dataRange: DataRange) {
+        print("\(#function), dataRange: \(dataRange)")
+    }
+    
+    func diagramMoved(scale scale: Double, start: Double) {
+        print("\(#function), scale: \(scale), start: \(start)")
+    }
+}
+
+extension BrowserViewController:MPMediaPickerControllerDelegate{
+    func mediaPickerDidCancel(mediaPicker: MPMediaPickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        
+        let item = mediaItemCollection.items.first
+        let urlAny = item?.valueForKey(MPMediaItemPropertyAssetURL);
+        let url = urlAny as! NSURL
+        self.waveformVC.asset = AVAsset.init(URL: url)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+
+        let itemArtworkAny = item?.valueForProperty(MPMediaItemPropertyArtwork);
+        if let itemArtwork = itemArtworkAny as? MPMediaItemArtwork
+        {
+            let albumArtworkImage = itemArtwork.imageWithSize(CGSize(width: 36.0, height: 36.0));
+            self.importMusicalView.importButton.setBackgroundImage(albumArtworkImage, forState: UIControlState.Normal)
+             self.importMusicalView.importButton.setBackgroundImage(albumArtworkImage, forState: UIControlState.Selected)
+        }
+        else{
+            self.importMusicalView.importButton.setBackgroundImage(UIImage.init(named: "songchart"), forState: UIControlState.Normal)
+             self.importMusicalView.importButton.setBackgroundImage(UIImage.init(imageLiteral: "songchart"), forState: UIControlState.Selected)
+        }
+        
+        self.configureWaveform()
+        
+        self.waveformVC.readAndDrawSynchronously({[weak self] in
+            if $0 != nil {
+                print("error:", $0!)
+            } else {
+                print("waveform finished drawing")
+            }
+        })
     }
 }
