@@ -30,6 +30,8 @@ import UIKit
 import Advance
 import MediaPlayer
 
+import ReactiveCocoa
+
 private final class DemoItem: BrowserItem {
     let viewController: CardViewController
     init(viewController: CardViewController) {
@@ -52,6 +54,7 @@ final class BrowserViewController: UIViewController {
     let importMusicalView = ImportMusicalView(frame: CGRect.zero)
     var waveformVC : DVGWaveformController!
     var mediaPicker: MPMediaPickerController?
+    dynamic var toPrecessVideoAssets : [AVAsset]?
     
     required init(viewControllers: [CardViewController]) {
         self.viewControllers = viewControllers
@@ -103,6 +106,30 @@ final class BrowserViewController: UIViewController {
         
         self.waveformVC = DVGWaveformController(containerView: self.importMusicalView.waveformView)
         self.importMusicalView.importButton.addTarget(self, action: #selector(onTapChooseSong), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let property = DynamicProperty(object: self, keyPath: "toPrecessVideoAssets")
+         property.producer.startWithNext { [weak self] assets in
+            if (nil == assets){
+                return
+            }
+            let videoAssets = assets as! [AVAsset]
+            if 0 != videoAssets.count{
+            NSLog("hi %f", CMTimeGetSeconds((videoAssets.first?.duration)!))
+            }
+        }
+        property.producer.skip(0).startWithNext {asset in
+            if let VideoAssets = asset as? [AVAsset]{
+            let maxSecond =  VideoAssets.reduce(0,combine: { (maxSecond, videoA) -> Float64 in
+                
+                return CMTimeGetSeconds(videoA.duration) > maxSecond ? CMTimeGetSeconds(videoA.duration) : maxSecond
+
+            })
+                 NSLog("hello, \(maxSecond)")
+            }
+        }
+        let asset = AVAsset.init(URL: NSURL.init(string: "h")!)
+        self.toPrecessVideoAssets = [asset]
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -211,10 +238,10 @@ extension BrowserViewController:MPMediaPickerControllerDelegate{
         let item = mediaItemCollection.items.first
         let urlAny = item?.valueForKey(MPMediaItemPropertyAssetURL);
         let url = urlAny as! NSURL
-        self.waveformVC.asset = AVAsset.init(URL: url)
+        
         self.dismissViewControllerAnimated(true, completion: nil)
         
-
+        self.waveformVC.asset = AVAsset.init(URL: url)
         let itemArtworkAny = item?.valueForProperty(MPMediaItemPropertyArtwork);
         if let itemArtwork = itemArtworkAny as? MPMediaItemArtwork
         {

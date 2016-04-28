@@ -120,6 +120,16 @@ class DVGWaveformController: NSObject {
         }
     }
     var start: CGFloat = 0.0
+    var selection:DataRange?
+    {
+        set(newVal){
+            diagram.selection = newVal
+        }
+        
+        get {
+           return diagram.selection
+        }
+    }
     var scale: CGFloat = 1.0
     
     @objc var playbackRelativePosition: NSNumber? {

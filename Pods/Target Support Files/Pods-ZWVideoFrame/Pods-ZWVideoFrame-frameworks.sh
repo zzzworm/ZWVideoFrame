@@ -88,6 +88,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ZWVideoFrame/EasyTipView.framework"
   install_framework "Pods-ZWVideoFrame/FDTake.framework"
   install_framework "Pods-ZWVideoFrame/PureLayout.framework"
+  install_framework "Pods-ZWVideoFrame/ReactiveCocoa.framework"
+  install_framework "Pods-ZWVideoFrame/Result.framework"
   install_framework "Pods-ZWVideoFrame/Ruler.framework"
   install_framework "Pods-ZWVideoFrame/TPKeyboardAvoiding.framework"
 fi
@@ -96,6 +98,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ZWVideoFrame/EasyTipView.framework"
   install_framework "Pods-ZWVideoFrame/FDTake.framework"
   install_framework "Pods-ZWVideoFrame/PureLayout.framework"
+  install_framework "Pods-ZWVideoFrame/ReactiveCocoa.framework"
+  install_framework "Pods-ZWVideoFrame/Result.framework"
   install_framework "Pods-ZWVideoFrame/Ruler.framework"
   install_framework "Pods-ZWVideoFrame/TPKeyboardAvoiding.framework"
 fi
