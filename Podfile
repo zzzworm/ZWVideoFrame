@@ -10,7 +10,7 @@ def pods
 #    pod "RAReorderableLayout"
     pod "PureLayout"
     pod 'EasyTipView', '~> 0.1.3'
-#    pod 'FDWaveformView'
+    pod 'ReactiveCocoa'
 end
 
 target 'ZWVideoFrame' do

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A14956E1ED6F0DD39A798FAE'
+               BlueprintIdentifier = '275775A680EBA38D0276E379'
                BlueprintName = 'Pods-ZWVideoFrame'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_ZWVideoFrame.framework'>
