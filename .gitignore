@@ -1,2 +1,7 @@
 ZWVideoFrame.xcworkspace/xcshareddata
 ZWVideoFrame.xcworkspace/xcuserdata
+#ignore .metadata
+.metadata
+.gitignore
+#ignore obj and lib file
+*.[oa]
