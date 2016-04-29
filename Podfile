@@ -12,6 +12,7 @@ def pods
     pod "PureLayout"
     pod 'EasyTipView', '~> 0.1.3'
     pod 'ReactiveCocoa'
+    pod 'Player'
 end
 
 target 'ZWVideoFrame' do

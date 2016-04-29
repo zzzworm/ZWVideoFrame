@@ -8,10 +8,15 @@
 
 import UIKit
 import FDTake
+import Player
+import ReactiveCocoa
+
 class FrameConfigRoomViewController: CardViewController {
     let frameConfig:FrameConfig
     let roomView = FrameConfigRoomView()
     var fdTakeController : FDTakeController?
+    var player:Player?
+    dynamic var videoUrl: NSURL?
     required init(frameConfig:FrameConfig)
     {
         self.frameConfig = frameConfig
@@ -32,8 +37,8 @@ class FrameConfigRoomViewController: CardViewController {
         
         self.roomView.configView(frameConfig)
         
-        roomView.actionHanler = {
-            (sender:AnyObject?) -> Void in
+        let chooseHanlde = {
+            [unowned self] (sender:AnyObject?) -> Void in
             if nil == self.fdTakeController {
                 self.fdTakeController = FDTakeController()
             }
@@ -75,21 +80,48 @@ class FrameConfigRoomViewController: CardViewController {
             }
             self.fdTakeController!.didGetVideo = {
                 (video: NSURL, info: [NSObject : AnyObject]) -> Void in
-                let alert = UIAlertController(title: "Got photo", message: "User selected photo", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                
-                // http://stackoverflow.com/a/34487871/300224
-                let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-                alertWindow.rootViewController = UIViewController()
-                alertWindow.windowLevel = UIWindowLevelAlert + 1;
-                alertWindow.makeKeyAndVisible()
-                alertWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+                self.videoUrl = video
             }
             
             fdTakeVc.presentingView = self.view
             fdTakeVc.present()
         }
-
+        
+        let pauseHandle = {
+            [unowned self] (sender:AnyObject?) -> Void in
+            if let player = self.player  {
+                if(player.playbackState == PlaybackState.Playing){
+                     player.pause()
+                }else if(player.playbackState == PlaybackState.Stopped){
+                    player.playFromBeginning()
+                }
+                else{
+                    player.playFromCurrentTime()
+                }
+            }
+        }
+       
+        
+        let videoUrlProperty = DynamicProperty(object: self, keyPath:  "videoUrl")
+        videoUrlProperty.producer.startWithNext { [unowned self, pauseHandle, chooseHanlde] videoUrlAny in
+            if let videoUrl:NSURL = videoUrlAny as? NSURL {
+            
+            self.player = nil == self.player ? Player() : self.player
+            //self.player!.delegate = self
+            self.player!.view.frame.size = self.roomView.actionView!.frame.size
+                self.player!.view.frame.origin = CGPoint.zero
+            
+            self.addChildViewController(self.player!)
+            self.roomView.actionView!.addSubview(self.player!.view)
+            self.player!.didMoveToParentViewController(self)
+            self.player!.delegate = self;
+            self.player!.setUrl(videoUrl)
+                 self.roomView.actionHanler = pauseHandle
+            }
+            else{
+                self.roomView.actionHanler = chooseHanlde
+            }
+        }
     }
     
     
@@ -104,14 +136,31 @@ class FrameConfigRoomViewController: CardViewController {
         super.updateViewConstraints()
         self.roomView.autoPinEdgesToSuperviewMargins()
     }
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+
+extension FrameConfigRoomViewController: PlayerDelegate
+{
+    func playerReady(player: Player)
+    {
+        player.playFromBeginning()
     }
-    */
+    func playerPlaybackStateDidChange(player: Player)
+    {
+        
+    }
+    func playerBufferingStateDidChange(player: Player)
+    {
+        
+    }
+    func playerPlaybackWillStartFromBeginning(player: Player)
+    {
+        
+    }
+    func playerPlaybackDidEnd(player: Player)
+    {
+        
+    }
 
 }

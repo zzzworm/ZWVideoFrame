@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Player.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ZWVideoFrame.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +67,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00073BEEA4A72E3D9D47EE648FEBB9EA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>18A19E1F5F166424BA556CA189025E32</key>
+		<key>1FB4DA846CABF37031F6D1A0BC5BA82A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>313D9208063361AED0D8A1F10D118FCF</key>
+		<key>560B7622B8DE164AB9B5B119DFB10D92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,17 +92,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F3AF63409F5E16F84BC3842618EEF44</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>7C57575B6424B464B670D33FED322BE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D745682697F04690F2562A60BC29609B</key>
+		<key>9B02B89380CFF733868C05DF52D849D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C1E63A1BF93FD336FEC6B7950AA018F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C658C770B5C777A53607C0749EC40B14</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC79E805613E512EBD4AD81732E198A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA7B35C0EEB231C18DB844B6B3EEE0AB</key>
+		<key>F916D699D64E8A46A0D780E667ECCD38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
