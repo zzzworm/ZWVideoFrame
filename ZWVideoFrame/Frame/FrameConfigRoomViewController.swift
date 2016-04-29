@@ -30,8 +30,6 @@ class FrameConfigRoomViewController: CardViewController {
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Undo, target: self, action: #selector(back))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "export", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(exportTapped))
         self.roomView.configView(frameConfig)
         
         roomView.actionHanler = {
@@ -94,19 +92,7 @@ class FrameConfigRoomViewController: CardViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = false
-    }
-
-    func exportTapped(sender:UIResponder){
-        
-    }
     
-    func back(sender:UIResponder){
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

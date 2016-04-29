@@ -77,9 +77,16 @@ class FrameSelectionViewController: PageViewController,UICollectionViewDataSourc
         let configRoomVC = FrameConfigRoomViewController(frameConfig:frameConfig)
         let configRoomVC2 = FrameConfigRoomViewController(frameConfig:frameConfig)
         let frameworkspaceVC = BrowserViewController(viewControllers: [ configRoomVC,configRoomVC2])
-        self.presentViewController(frameworkspaceVC, animated: true, completion: nil)
+        let navRoot = UINavigationController.init()
+        navRoot.navigationBar.backgroundColor = UIColor.clearColor()
+        navRoot.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        //        navRoot.navigationBar.translucent = true
+        navRoot.navigationBar.shadowImage = UIImage()
+        navRoot.navigationBar.tintColor = UIColor.blueColor()
+        navRoot.viewControllers = [frameworkspaceVC]
         if let parantNaviController = self.parentNavigationController {
-            parantNaviController.pushViewController(configRoomVC, animated: true)
+            parantNaviController.navigationBarHidden = false;
+            parantNaviController.pushViewController(frameworkspaceVC, animated: true)
         }
     }
 

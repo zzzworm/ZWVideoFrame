@@ -26,10 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navRoot.navigationBar.tintColor = UIColor.blueColor()
 
         let s = FrameSelectionViewController()
-        s.parentNavigationController = navRoot
+
         let g = FrameSelectionViewController()
-        s.parentNavigationController = navRoot
-        
+
         let workspaceVC = WorkSpaceViewController(viewControllers: [ g,s])
         navRoot.viewControllers = [workspaceVC]
         

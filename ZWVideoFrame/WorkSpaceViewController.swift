@@ -38,7 +38,12 @@ class WorkSpaceViewController: UIViewController {
         ]
         
         // Initialize page menu with controller array, frame, and optional parameters
-        pageMenu = CAPSPageMenu(viewControllers: viewControllers, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
+        var pageVCs:[PageViewController] = []
+        for pageItem:PageViewController in viewControllers {
+            pageItem.parentNavigationController = self.navigationController
+            pageVCs.append(pageItem)
+        }
+        pageMenu = CAPSPageMenu(viewControllers: pageVCs, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
         
         // Lastly add page menu as subview of base view controller view
         // or use pageMenu controller in you view hierachy as desired
@@ -54,5 +59,15 @@ class WorkSpaceViewController: UIViewController {
         super.updateViewConstraints()
         
     }
+    
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationController?.setNavigationBarHidden(true, animated:animated)
+//    }
+    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
     
 }

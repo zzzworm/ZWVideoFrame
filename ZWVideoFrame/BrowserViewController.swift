@@ -74,7 +74,9 @@ final class BrowserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Undo, target: self, action: #selector(back))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "export", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(exportTapped))
+
         
         backgroundImageView.contentMode = .ScaleAspectFill
         backgroundImageView.image = UIImage(named: "background")
@@ -131,7 +133,15 @@ final class BrowserViewController: UIViewController {
         self.toPrecessVideoAssets = [asset]
 
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated:animated)
+    }
+
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         backgroundImageView.frame = view.bounds
@@ -146,6 +156,21 @@ final class BrowserViewController: UIViewController {
         return true
     }
     
+    func exportTapped(sender:UIResponder){
+        
+    }
+    
+    func back(sender:UIResponder){
+        if let nav = self.navigationController {
+            nav.popViewControllerAnimated(true)
+        }
+        else{
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+
+    }
+    
+
     func onTapChooseSong(sender: AnyObject?) {
         mediaPicker = MPMediaPickerController(mediaTypes: .AnyAudio)
         
