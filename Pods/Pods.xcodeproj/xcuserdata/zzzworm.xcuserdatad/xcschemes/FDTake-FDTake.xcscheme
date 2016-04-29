@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '848AE8CBF42D993D0E38A6F1'
+               BlueprintIdentifier = 'D6C287871B3B7AEB1FF64003'
                BlueprintName = 'FDTake-FDTake'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'FDTake.bundle'>

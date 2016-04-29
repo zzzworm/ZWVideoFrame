@@ -6,6 +6,7 @@ def pods
     pod 'Ruler'
     pod 'TPKeyboardAvoiding'
     pod 'Advance', '0.9'
+    pod 'PageMenu'
     pod "FDTake"
 #    pod "RAReorderableLayout"
     pod "PureLayout"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FrameManager: NSObject {
+class FrameManager: FrameToolSet {
     var frames : [FrameConfig] = []
     
     required override init() {

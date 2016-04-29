@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PageMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ZWVideoFrame.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>00073BEEA4A72E3D9D47EE648FEBB9EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>18A19E1F5F166424BA556CA189025E32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>21C461B0CAD90DE64B07A5D212C5F829</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>292CF4573A3B5EEAD429F3C1F1C1E403</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>377825425AC5AC603102D2D263BEDC62</key>
+		<key>313D9208063361AED0D8A1F10D118FCF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,37 +92,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6F3AF63409F5E16F84BC3842618EEF44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7C57575B6424B464B670D33FED322BE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D90316B5981A84AA8254792853F517B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>93E022CE482D955C804A6DF28639DE25</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A31163F3A49E5C5BF15926476EF76FB9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CA321D2A6620B1CE2375E3A917476005</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DE1AEAF3EC7DC37DBEFF67F377920A33</key>
+		<key>D745682697F04690F2562A60BC29609B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F3B87D093A49B3F7B4794037EC2B814E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA7B35C0EEB231C18DB844B6B3EEE0AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

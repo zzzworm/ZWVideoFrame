@@ -58,7 +58,7 @@ class CardViewController: UIViewController {
         
         contentView.alpha = 0.4
         contentView.layer.allowsGroupOpacity = false
-        contentView.userInteractionEnabled = false
+        contentView.userInteractionEnabled = true
         contentView.frame = view.bounds
         view.addSubview(contentView)
         
@@ -101,14 +101,14 @@ class CardViewController: UIViewController {
     func didEnterFullScreen() {
         noteLabel.alpha = 1.0
         contentView.alpha = 1.0
-        contentView.userInteractionEnabled = true
+//        contentView.userInteractionEnabled = true
         titleLabel.alpha = 0.0
     }
     
     func didLeaveFullScreen() {
         noteLabel.alpha = 0.0
         contentView.alpha = 0.5
-        contentView.userInteractionEnabled = false
+//        contentView.userInteractionEnabled = false
         titleLabel.alpha = 1.0
     }
     

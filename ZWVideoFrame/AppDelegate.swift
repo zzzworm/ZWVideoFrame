@@ -18,17 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-
-        let s = FrameSelectionViewController()
-        let g = SpringsViewController()
-        
         let navRoot = UINavigationController.init()
         navRoot.navigationBar.backgroundColor = UIColor.clearColor()
         navRoot.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navRoot.navigationBar.translucent = true
+//        navRoot.navigationBar.translucent = true
         navRoot.navigationBar.shadowImage = UIImage()
+        navRoot.navigationBar.tintColor = UIColor.blueColor()
+
+        let s = FrameSelectionViewController()
+        s.parentNavigationController = navRoot
+        let g = FrameSelectionViewController()
+        s.parentNavigationController = navRoot
         
-        let workspaceVC = BrowserViewController(viewControllers: [ g,s])
+        let workspaceVC = WorkSpaceViewController(viewControllers: [ g,s])
         navRoot.viewControllers = [workspaceVC]
         
         window?.rootViewController = navRoot

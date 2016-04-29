@@ -8,14 +8,15 @@
 
 import UIKit
 import FDTake
-class FrameConfigRoomViewController: UIViewController {
+class FrameConfigRoomViewController: CardViewController {
     let frameConfig:FrameConfig
-    var roomView: FrameConfigRoomView!
+    let roomView = FrameConfigRoomView()
     var fdTakeController : FDTakeController?
     required init(frameConfig:FrameConfig)
     {
         self.frameConfig = frameConfig
         super.init(nibName: nil, bundle: nil)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,6 +25,13 @@ class FrameConfigRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.view.addSubview(self.roomView)
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Undo, target: self, action: #selector(back))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "export", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(exportTapped))
         self.roomView.configView(frameConfig)
         
         roomView.actionHanler = {
@@ -85,15 +93,30 @@ class FrameConfigRoomViewController: UIViewController {
         }
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.hidden = false
+    }
 
+    func exportTapped(sender:UIResponder){
+        
+    }
+    
+    func back(sender:UIResponder){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func loadView() {
-        let roomView = FrameConfigRoomView()
-        self.view = roomView
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        self.roomView.autoPinEdgesToSuperviewMargins()
     }
     /*
     // MARK: - Navigation

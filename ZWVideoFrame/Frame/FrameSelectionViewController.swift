@@ -9,13 +9,13 @@
 
 import UIKit
 import Ruler
-
+import PageMenu
 
 protocol ReturnPickedFrameDelegate: class {
     func returnSelectedFrame(frame: [FrameConfig])
 }
 
-class FrameSelectionViewController: CardViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+class FrameSelectionViewController: PageViewController,UICollectionViewDataSource, UICollectionViewDelegate {
 
     let frameCellID = "frameCell"
     var collectionView : UICollectionView!
@@ -39,13 +39,13 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         
         collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.whiteColor()
-        collectionView.alwaysBounceVertical = true
+        collectionView.alwaysBounceVertical = false
         collectionView.registerClass(FrameCollectionCell.self, forCellWithReuseIdentifier: frameCellID)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsSelection = true
         collectionView.userInteractionEnabled = true
-        self.contentView.addSubview(collectionView)
+        self.view.addSubview(collectionView)
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_back"), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
         navigationItem.leftBarButtonItem = backBarButtonItem
@@ -69,14 +69,18 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(frameCellID, forIndexPath: indexPath) as! FrameCollectionCell
         cell.configFrameConfig(FrameManager.sharedInstance.frames[indexPath.row])
-        cell.userInteractionEnabled = true
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let frameConfig = FrameManager.sharedInstance.frames[indexPath.row]
         let configRoomVC = FrameConfigRoomViewController(frameConfig:frameConfig)
-        self.navigationController?.pushViewController(configRoomVC, animated: true)
+        let configRoomVC2 = FrameConfigRoomViewController(frameConfig:frameConfig)
+        let frameworkspaceVC = BrowserViewController(viewControllers: [ configRoomVC,configRoomVC2])
+        self.presentViewController(frameworkspaceVC, animated: true, completion: nil)
+        if let parantNaviController = self.parentNavigationController {
+            parantNaviController.pushViewController(configRoomVC, animated: true)
+        }
     }
 
 

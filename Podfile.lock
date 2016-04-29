@@ -2,6 +2,7 @@ PODS:
   - Advance (0.9)
   - EasyTipView (0.1.8)
   - FDTake (0.3.2)
+  - PageMenu (1.2.9)
   - PureLayout (3.0.1)
   - ReactiveCocoa (4.1.0):
     - ReactiveCocoa/UI (= 4.1.0)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - Advance (= 0.9)
   - EasyTipView (~> 0.1.3)
   - FDTake
+  - PageMenu
   - PureLayout
   - ReactiveCocoa
   - Ruler
@@ -31,6 +33,7 @@ SPEC CHECKSUMS:
   Advance: 2872109f4d069b0b0245e1375ab5073e09dd051a
   EasyTipView: b4ea591d23b76d63d7b5680fd3edb07094318c9d
   FDTake: 122aaf465673b05648cd1b40200a19c85b1aa9e0
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   ReactiveCocoa: d70004d7a366a7b8e87e60ce2347182c77701949
   Result: 9e75e1111c774c6ac594e14907b15057053a7959
