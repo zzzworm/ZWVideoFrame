@@ -9,17 +9,17 @@
 
 import UIKit
 import Ruler
-import FDTake
+
 
 protocol ReturnPickedFrameDelegate: class {
     func returnSelectedFrame(frame: [FrameConfig])
 }
 
-class FrameSelectionViewController: CardViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class FrameSelectionViewController: CardViewController,UICollectionViewDataSource, UICollectionViewDelegate {
 
     let frameCellID = "frameCell"
     var collectionView : UICollectionView!
-    var fdTakeController : FDTakeController?
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         let height = width
         layout.itemSize = CGSize(width: width, height: height)
         
-        let gap: CGFloat = Ruler<CGFloat>.iPhoneHorizontal(1, 1, 1).value
+        let gap: CGFloat = Ruler<CGFloat>.iPhoneHorizontal(5, 5, 5).value
         layout.minimumInteritemSpacing = gap
         layout.minimumLineSpacing = gap
         layout.sectionInset = UIEdgeInsets(top: gap, left: gap, bottom: gap, right: gap)
@@ -43,7 +43,9 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         collectionView.registerClass(FrameCollectionCell.self, forCellWithReuseIdentifier: frameCellID)
         collectionView.dataSource = self
         collectionView.delegate = self
-        self.view.addSubview(collectionView)
+        collectionView.allowsSelection = true
+        collectionView.userInteractionEnabled = true
+        self.contentView.addSubview(collectionView)
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_back"), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
         navigationItem.leftBarButtonItem = backBarButtonItem
@@ -67,70 +69,16 @@ class FrameSelectionViewController: CardViewController,UICollectionViewDataSourc
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(frameCellID, forIndexPath: indexPath) as! FrameCollectionCell
         cell.configFrameConfig(FrameManager.sharedInstance.frames[indexPath.row])
-        cell.actionHanler = {
-            (sender:AnyObject?) -> Void in
-            if nil == self.fdTakeController {
-                self.fdTakeController = FDTakeController()
-            }
-            let fdTakeVc = self.fdTakeController!
-            
-            fdTakeVc.allowsPhoto = true
-            fdTakeVc.allowsVideo = true
-            fdTakeVc.allowsTake = true
-            fdTakeVc.allowsSelectFromLibrary = true
-            fdTakeVc.allowsEditing = false
-            fdTakeVc.defaultsToFrontCamera = true
-            fdTakeVc.iPadUsesFullScreenCamera = true
-            fdTakeVc.didDeny = {
-                let alert = UIAlertController(title: "Denied", message: "User did not select a photo/video", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-            self.fdTakeController!.didCancel = {
-                let alert = UIAlertController(title: "Cancelled", message: "User did cancel while selecting", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-            self.fdTakeController!.didFail = {
-                let alert = UIAlertController(title: "Failed", message: "User selected but API failed", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-            self.fdTakeController!.didGetPhoto = {
-                (photo: UIImage, info: [NSObject : AnyObject]) -> Void in
-                let alert = UIAlertController(title: "Got photo", message: "User selected photo", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                
-                // http://stackoverflow.com/a/34487871/300224
-                let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-                alertWindow.rootViewController = UIViewController()
-                alertWindow.windowLevel = UIWindowLevelAlert + 1;
-                alertWindow.makeKeyAndVisible()
-                alertWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-            }
-            self.fdTakeController!.didGetVideo = {
-                (video: NSURL, info: [NSObject : AnyObject]) -> Void in
-                let alert = UIAlertController(title: "Got photo", message: "User selected photo", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                
-                // http://stackoverflow.com/a/34487871/300224
-                let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-                alertWindow.rootViewController = UIViewController()
-                alertWindow.windowLevel = UIWindowLevelAlert + 1;
-                alertWindow.makeKeyAndVisible()
-                alertWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-            }
-
-            fdTakeVc.presentingView = self.view
-            fdTakeVc.present()
-        }
+        cell.userInteractionEnabled = true
         return cell
     }
     
-    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        let frameConfig = FrameManager.sharedInstance.frames[indexPath.row]
+        let configRoomVC = FrameConfigRoomViewController(frameConfig:frameConfig)
+        self.navigationController?.pushViewController(configRoomVC, animated: true)
     }
+
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -154,9 +102,3 @@ extension FrameSelectionViewController: UIGestureRecognizerDelegate {
     }
 }
 
-extension FrameSelectionViewController:UICollectionViewDelegateFlowLayout
-{
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSize.init(width: 80, height: 180);
-//    }
-}

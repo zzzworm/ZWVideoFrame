@@ -15,7 +15,14 @@ class FrameManager: NSObject {
         super.init()
         let simpleFrame = FrameConfig()
         frames.append(simpleFrame)
-        
+        frames.append(simpleFrame)
+        frames.append(simpleFrame)
+        frames.append(simpleFrame)
+        frames.append(simpleFrame)
+        frames.append(simpleFrame)
+        frames.append(simpleFrame)
+        frames.append(simpleFrame)
+        frames.append(simpleFrame)
     }
     
     class var sharedInstance: FrameManager {
