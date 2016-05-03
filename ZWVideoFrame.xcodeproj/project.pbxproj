@@ -15,6 +15,13 @@
 		940E46501CD34E1500B716E6 /* VideoToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E464F1CD34E1500B716E6 /* VideoToolManager.swift */; };
 		940E46521CD34EC600B716E6 /* FrameToolSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46511CD34EC600B716E6 /* FrameToolSet.swift */; };
 		940E46541CD3595700B716E6 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46531CD3595700B716E6 /* PageViewController.swift */; };
+		940E46681CD887B400B716E6 /* LayoutCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46631CD887B400B716E6 /* LayoutCollectionCell.swift */; };
+		940E46691CD887B400B716E6 /* LayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46641CD887B400B716E6 /* LayoutManager.swift */; };
+		940E466A1CD887B400B716E6 /* LayoutSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46651CD887B400B716E6 /* LayoutSelectionViewController.swift */; };
+		940E466B1CD887B400B716E6 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46661CD887B400B716E6 /* Layout.swift */; };
+		940E466C1CD887B400B716E6 /* LayoutConfigRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46671CD887B400B716E6 /* LayoutConfigRoomViewController.swift */; };
+		940E466E1CD888C700B716E6 /* LayoutConfigRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E466D1CD888C700B716E6 /* LayoutConfigRoomView.swift */; };
+		940E46711CD889EF00B716E6 /* SourceActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940E46701CD889EF00B716E6 /* SourceActionView.swift */; };
 		943F7D201CCFA7300016A87E /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D181CCFA7300016A87E /* BrowserViewController.swift */; };
 		943F7D221CCFA7300016A87E /* ImportMusicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F7D1A1CCFA7300016A87E /* ImportMusicalView.swift */; };
 		9474139E1CD0B0CA00D8EEA6 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */; };
@@ -77,6 +84,13 @@
 		940E464F1CD34E1500B716E6 /* VideoToolManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoToolManager.swift; sourceTree = "<group>"; };
 		940E46511CD34EC600B716E6 /* FrameToolSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameToolSet.swift; sourceTree = "<group>"; };
 		940E46531CD3595700B716E6 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		940E46631CD887B400B716E6 /* LayoutCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutCollectionCell.swift; path = ZWVideoFrame/Layout/LayoutCollectionCell.swift; sourceTree = SOURCE_ROOT; };
+		940E46641CD887B400B716E6 /* LayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutManager.swift; path = ZWVideoFrame/Layout/LayoutManager.swift; sourceTree = SOURCE_ROOT; };
+		940E46651CD887B400B716E6 /* LayoutSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutSelectionViewController.swift; path = ZWVideoFrame/Layout/LayoutSelectionViewController.swift; sourceTree = SOURCE_ROOT; };
+		940E46661CD887B400B716E6 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout.swift; path = ZWVideoFrame/Layout/Layout.swift; sourceTree = SOURCE_ROOT; };
+		940E46671CD887B400B716E6 /* LayoutConfigRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutConfigRoomViewController.swift; path = ZWVideoFrame/Layout/LayoutConfigRoomViewController.swift; sourceTree = SOURCE_ROOT; };
+		940E466D1CD888C700B716E6 /* LayoutConfigRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigRoomView.swift; sourceTree = "<group>"; };
+		940E46701CD889EF00B716E6 /* SourceActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SourceActionView.swift; path = Common/SourceActionView.swift; sourceTree = "<group>"; };
 		943F7D181CCFA7300016A87E /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		943F7D1A1CCFA7300016A87E /* ImportMusicalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportMusicalView.swift; sourceTree = "<group>"; };
 		9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameManager.swift; path = ZWVideoFrame/Frame/FrameManager.swift; sourceTree = SOURCE_ROOT; };
@@ -148,6 +162,14 @@
 				35508F43184428AC048BB29A /* Pods-ZWVideoFrame.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		940E466F1CD889BA00B716E6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				940E46701CD889EF00B716E6 /* SourceActionView.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		94954A7E1CD05339001D24E8 /* Vender */ = {
@@ -231,16 +253,20 @@
 				9474139D1CD0B0CA00D8EEA6 /* FrameManager.swift */,
 				940E46371CD314D000B716E6 /* FrameConfigRoomView.swift */,
 			);
-			name = Frame;
-			path = Vender;
+			path = Frame;
 			sourceTree = "<group>";
 		};
 		94954AB71CD0A61E001D24E8 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				940E46631CD887B400B716E6 /* LayoutCollectionCell.swift */,
+				940E46641CD887B400B716E6 /* LayoutManager.swift */,
+				940E46651CD887B400B716E6 /* LayoutSelectionViewController.swift */,
+				940E46661CD887B400B716E6 /* Layout.swift */,
+				940E46671CD887B400B716E6 /* LayoutConfigRoomViewController.swift */,
+				940E466D1CD888C700B716E6 /* LayoutConfigRoomView.swift */,
 			);
-			name = Layout;
-			path = Vender;
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		94C8BA871CCDE5610016CFFB = {
@@ -266,6 +292,7 @@
 		94C8BA921CCDE5610016CFFB /* ZWVideoFrame */ = {
 			isa = PBXGroup;
 			children = (
+				940E466F1CD889BA00B716E6 /* Common */,
 				940E46491CD348C300B716E6 /* BrowserView.swift */,
 				940E464A1CD348C300B716E6 /* DirectManipulationGestureRecognizer.swift */,
 				940E464B1CD348C300B716E6 /* SimpleTransform.swift */,
@@ -459,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C8BA961CCDE5610016CFFB /* WorkSpaceViewController.swift in Sources */,
+				940E466E1CD888C700B716E6 /* LayoutConfigRoomView.swift in Sources */,
 				94954ABD1CD0A877001D24E8 /* FrameCollectionCell.swift in Sources */,
 				94954AA51CD05339001D24E8 /* Channel.swift in Sources */,
 				94954AAA1CD05339001D24E8 /* NumberTypes.swift in Sources */,
@@ -474,9 +502,11 @@
 				940E464C1CD348C300B716E6 /* BrowserView.swift in Sources */,
 				94954AAD1CD05339001D24E8 /* Diagram.swift in Sources */,
 				940E46541CD3595700B716E6 /* PageViewController.swift in Sources */,
+				940E46681CD887B400B716E6 /* LayoutCollectionCell.swift in Sources */,
 				94D7F3CB1CD0C61600986779 /* ZWShapeView.swift in Sources */,
 				94954AAB1CD05339001D24E8 /* Protocols.swift in Sources */,
 				94954AA71CD05339001D24E8 /* Dispatch.swift in Sources */,
+				940E466A1CD887B400B716E6 /* LayoutSelectionViewController.swift in Sources */,
 				943F7D201CCFA7300016A87E /* BrowserViewController.swift in Sources */,
 				940E46381CD314D000B716E6 /* FrameConfigRoomView.swift in Sources */,
 				94954A9E1CD05339001D24E8 /* DVGAudioWaveformDiagram.swift in Sources */,
@@ -484,10 +514,13 @@
 				94954AB31CD05339001D24E8 /* PlotModel.swift in Sources */,
 				94954AA21CD05339001D24E8 /* AudioReaderSettings.swift in Sources */,
 				940E464D1CD348C300B716E6 /* DirectManipulationGestureRecognizer.swift in Sources */,
+				940E46691CD887B400B716E6 /* LayoutManager.swift in Sources */,
 				94954A9D1CD05339001D24E8 /* ScalableChannelsContainer.swift in Sources */,
 				940E46501CD34E1500B716E6 /* VideoToolManager.swift in Sources */,
 				94954AAC1CD05339001D24E8 /* UIKit+extensions.swift in Sources */,
+				940E46711CD889EF00B716E6 /* SourceActionView.swift in Sources */,
 				94954AA91CD05339001D24E8 /* LogicProvider.swift in Sources */,
+				940E466B1CD887B400B716E6 /* Layout.swift in Sources */,
 				94C8BA941CCDE5610016CFFB /* AppDelegate.swift in Sources */,
 				94954AA61CD05339001D24E8 /* DiagramGeometry.swift in Sources */,
 				94C433681CCFAD4A00CFBD64 /* CardViewController.swift in Sources */,
@@ -497,6 +530,7 @@
 				940E464E1CD348C300B716E6 /* SimpleTransform.swift in Sources */,
 				94954AAE1CD05339001D24E8 /* PlaybackPositionView.swift in Sources */,
 				94954A9F1CD05339001D24E8 /* DVGAudioWaveformDiagramModel.swift in Sources */,
+				940E466C1CD887B400B716E6 /* LayoutConfigRoomViewController.swift in Sources */,
 				94954AA31CD05339001D24E8 /* AudioSamplesContainer.swift in Sources */,
 				94B8BD241CD1049E00B4DEE0 /* VideoFrameShapeDrawable.swift in Sources */,
 				94954AAF1CD05339001D24E8 /* Plot.swift in Sources */,
