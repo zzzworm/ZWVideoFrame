@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 protocol VideoFrameShapeViewDrawable : class {
-    func drawShapView(frameShapeView: UIView)  -> UIView
+    func drawShapView(frameShapeView: UIView)  -> SourceActionView
 }
