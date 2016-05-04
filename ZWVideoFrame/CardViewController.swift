@@ -28,8 +28,25 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import UIKit
 import PureLayout
+import Player
 
 class CardViewController: UIViewController {
+    enum Mode {
+        case preview
+        case edit
+    }
+    
+    var mode:Mode = Mode.preview {
+        didSet {
+            if Mode.preview == mode
+            {
+                previewMode()
+            }
+            else{
+                editMode()
+            }
+        }
+    }
     
     var note: String {
         get { return noteLabel.text ?? "" }
@@ -47,6 +64,8 @@ class CardViewController: UIViewController {
     }
     
     let contentView = UIView()
+    
+    dynamic var mergerSoucreList:[VideoOrPhotoDataSouce] = []
     
     private let titleLabel = UILabel()
     
@@ -98,21 +117,29 @@ class CardViewController: UIViewController {
         }
     }
     
+
     func didEnterFullScreen() {
-        noteLabel.alpha = 1.0
-        contentView.alpha = 1.0
-//        contentView.userInteractionEnabled = true
-        titleLabel.alpha = 0.0
+        mode = Mode.edit
     }
     
     func didLeaveFullScreen() {
-        noteLabel.alpha = 0.0
-        contentView.alpha = 0.5
-//        contentView.userInteractionEnabled = false
-        titleLabel.alpha = 1.0
+        mode = Mode.preview
     }
     
+    private func editMode(){
+        noteLabel.alpha = 1.0
+        contentView.alpha = 1.0
+        contentView.userInteractionEnabled = true
+        titleLabel.alpha = 0.0
+    }
     
+    private func previewMode()
+    {
+        noteLabel.alpha = 0.0
+        contentView.alpha = 0.5
+        contentView.userInteractionEnabled = false
+        titleLabel.alpha = 1.0
+    }
     override func updateViewConstraints() {
         super.updateViewConstraints()
         noteLabel.autoPinEdgeToSuperviewEdge(ALEdge.Left, withInset: 32)

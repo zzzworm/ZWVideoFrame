@@ -13,6 +13,8 @@ def pods
     pod 'EasyTipView', '~> 0.1.3'
     pod 'ReactiveCocoa'
     pod 'Player'
+    pod "PKHUD"
+    pod 'SCRecorder'
 end
 
 target 'ZWVideoFrame' do

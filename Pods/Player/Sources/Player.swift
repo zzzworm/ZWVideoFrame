@@ -185,7 +185,7 @@ public class Player: UIViewController {
         }
     }
 
-    private var asset: AVAsset!
+    public var asset: AVAsset!
     private var playerItem: AVPlayerItem?
 
     private var player: AVPlayer!
@@ -298,7 +298,7 @@ public class Player: UIViewController {
 
     // MARK: private setup
 
-    private func setupAsset(asset: AVAsset) {
+    public func setupAsset(asset: AVAsset) {
         if self.playbackState == .Playing {
             self.pause()
         }

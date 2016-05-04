@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PKHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PageMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -59,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCRecorder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,7 +77,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1FB4DA846CABF37031F6D1A0BC5BA82A</key>
+		<key>0E0D8E645EA41AC49EFC088D2A009508</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>560B7622B8DE164AB9B5B119DFB10D92</key>
+		<key>4C6FD3D049F34AC331E8751394A2A4F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +102,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>775ABD0ED64B3050F227FCF144F2091F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7C57575B6424B464B670D33FED322BE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B02B89380CFF733868C05DF52D849D7</key>
+		<key>86DA86EF6A4BEB963EBF7E8247D8BA57</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A931BF68DD99EDF4F5B228D7F5486F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AAEB16236131DE434BB845010F3AFD9E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C16B1AA477A14461D282010041D3E32A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C658C770B5C777A53607C0749EC40B14</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EC79E805613E512EBD4AD81732E198A7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>F3B87D093A49B3F7B4794037EC2B814E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F916D699D64E8A46A0D780E667ECCD38</key>
+		<key>F6F0516F82D07656D12F1C0716898F73</key>
 		<dict>
 			<key>primary</key>
 			<true/>

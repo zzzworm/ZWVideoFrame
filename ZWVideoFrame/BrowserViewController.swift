@@ -29,7 +29,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import UIKit
 import Advance
 import MediaPlayer
-
+import Player
 import ReactiveCocoa
 
 private final class DemoItem: BrowserItem {
@@ -44,17 +44,17 @@ final class BrowserViewController: UIViewController {
     
     let viewControllers: [CardViewController]
     
-    let backgroundImageView = UIImageView(frame: CGRect.zero)
-    let blurredBackgroundImageView = UIImageView(frame: CGRect.zero)
-    let backgroundDimmingView = UIView(frame: CGRect.zero)
+    private let backgroundImageView = UIImageView(frame: CGRect.zero)
+    private let blurredBackgroundImageView = UIImageView(frame: CGRect.zero)
+    private let backgroundDimmingView = UIView(frame: CGRect.zero)
     
-    let blurSpring = Spring(value: CGFloat.zero)
-    
+    private let blurSpring = Spring(value: CGFloat.zero)
     let browserView = BrowserView(frame: CGRect.zero)
     let importMusicalView = ImportMusicalView(frame: CGRect.zero)
     var waveformVC : DVGWaveformController!
     var mediaPicker: MPMediaPickerController?
     dynamic var toPrecessVideoAssets : [AVAsset]?
+
     
     required init(viewControllers: [CardViewController]) {
         self.viewControllers = viewControllers
@@ -119,8 +119,9 @@ final class BrowserViewController: UIViewController {
             NSLog("hi %f", CMTimeGetSeconds((videoAssets.first?.duration)!))
             }
         }
-        property.producer.skip(0).startWithNext {asset in
+        property.producer.skip(0).startWithNext {[unowned self]asset in
             if let VideoAssets = asset as? [AVAsset]{
+            self.showAndEnableRightNavigationItem()
             let maxSecond =  VideoAssets.reduce(0,combine: { (maxSecond, videoA) -> Float64 in
                 
                 return CMTimeGetSeconds(videoA.duration) > maxSecond ? CMTimeGetSeconds(videoA.duration) : maxSecond
@@ -128,11 +129,18 @@ final class BrowserViewController: UIViewController {
             })
                  NSLog("hello, \(maxSecond)")
             }
+            else{
+                self.hideAndDisableRightNavigationItem()
+            }
         }
         let asset = AVAsset.init(URL: NSURL.init(string: "h")!)
         self.toPrecessVideoAssets = [asset]
+        self.importMusicalView.hidden = true;
+        hideAndDisableRightNavigationItem()
 
     }
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated:animated)
@@ -176,12 +184,10 @@ final class BrowserViewController: UIViewController {
         
         if let picker = mediaPicker{
             
-            
-            print("Successfully instantiated a media picker")
             picker.delegate = self
             picker.allowsPickingMultipleItems = true
             picker.showsCloudItems = true
-            picker.prompt = "Pick a song please..."
+            picker.prompt = NSLocalizedString("Pick a song please...", comment:"")
             view.addSubview(picker.view)
             
             presentViewController(picker, animated: true, completion: nil)
@@ -202,9 +208,11 @@ extension BrowserViewController: BrowserViewDelegate {
         guard let item = item as? DemoItem else { fatalError() }
         assert(item.viewController.parentViewController != self)
         addChildViewController(item.viewController)
+        
         item.viewController.view.frame = item.view.bounds
         item.view.addSubview(item.viewController.view)
         item.viewController.didMoveToParentViewController(self)
+
     }
     
     func browserView(browserView: BrowserView, didHideItem item: BrowserItem) {
@@ -213,17 +221,38 @@ extension BrowserViewController: BrowserViewDelegate {
         item.viewController.willMoveToParentViewController(nil)
         item.viewController.view.removeFromSuperview()
         item.viewController.removeFromParentViewController()
+
+    }
+    
+    func browserView(browserView: BrowserView, didSelectItem item: BrowserItem) {
+        guard let item = item as? DemoItem else { fatalError() }
+        assert(item.viewController.parentViewController == self)
+        item.viewController.mergerSoucreList = MergerDataSoucreViewModel.sharedInstance.dataSourceList
+        
+        if self.browserView.fullScreenMode {
+            item.viewController.fullScreen = true
+        }
+    }
+    
+    func browserView(browserView: BrowserView, willSelectItem item: BrowserItem) {
+        guard let item = item as? DemoItem else { fatalError() }
+        assert(item.viewController.parentViewController == self)
+
     }
     
     func browserView(browserView: BrowserView, didEnterFullScreenForItem item: BrowserItem) {
         guard let item = item as? DemoItem else { fatalError() }
         item.viewController.fullScreen = true
-
+        self.importMusicalView.hidden = false
+        
     }
     
     func browserView(browserView: BrowserView, didLeaveFullScreenForItem item: BrowserItem) {
         guard let item = item as? DemoItem else { fatalError() }
         item.viewController.fullScreen = false
+        self.importMusicalView.hidden = true
+        
+
     }
     
     func browserViewDidScroll(browserView: BrowserView) {
@@ -232,13 +261,15 @@ extension BrowserViewController: BrowserViewDelegate {
         blurAmount = max(blurAmount, 0.0)
         blurSpring.target = blurAmount
         
+        if (browserView.fullScreenMode)  {
+            
+            var coverVisibility = 1.0 - (browserView.currentIndex - floor(browserView.currentIndex))
+            coverVisibility = min(coverVisibility, 1.0)
+            coverVisibility = max(coverVisibility, 0.0)
 
-        
-        var coverVisibility = 1.0 - (browserView.currentIndex - floor(browserView.currentIndex))
-        coverVisibility = min(coverVisibility, 1.0)
-        coverVisibility = max(coverVisibility, 0.0)
+            importMusicalView.alpha = 0.5 + CGFloat(coverVisibility*0.5)
 
-        importMusicalView.alpha = 0.5 + CGFloat(coverVisibility*0.5)
+        }
     }
 }
 
