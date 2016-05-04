@@ -13,7 +13,6 @@ class LayoutCollectionCell: UICollectionViewCell {
     let layoutView: UIView = UIView()
 
     var layoutConfig : LayoutConfig?
-    var actionView : UIView?
 
     required override init(frame: CGRect) {
         super.init(frame:frame)
@@ -34,7 +33,7 @@ class LayoutCollectionCell: UICollectionViewCell {
     func configLayoutConfig(layoutConfig:LayoutConfig) -> Void {
         self.setNeedsLayout()
         self.layoutIfNeeded()
-        actionView = layoutConfig.drawShapView(layoutView)
+        layoutConfig.drawShapView(layoutView)
 
         self.layoutConfig = layoutConfig
     }

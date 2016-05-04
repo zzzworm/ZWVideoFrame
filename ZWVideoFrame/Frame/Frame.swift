@@ -14,7 +14,7 @@ class FrameConfig: VideoFrameShapeViewDrawable {
     let height : CGFloat = 100.0
     let innerCornerRadius : CGFloat = 5.0
     let outerCornerRadius : CGFloat = 5.0
-    func drawShapView(frameShapeView: UIView) -> UIView
+    func drawShapView(frameShapeView: UIView) -> SourceActionView
     {
         let frameShapeLayer: CAShapeLayer = CAShapeLayer()
         frameShapeLayer.frame.size = frameShapeView.bounds.size
@@ -31,7 +31,7 @@ class FrameConfig: VideoFrameShapeViewDrawable {
         frameShapeLayer.path = shapePath
         frameShapeLayer.fillColor = UIColor.blueColor().CGColor
         frameShapeLayer.fillRule = kCAFillRuleEvenOdd
-        let actionView = UIView()
+        let actionView = SourceActionView()
         actionView.frame.size = innerRectSize;
         actionView.frame.origin = innerRectOrigion //CGPoint.init(x: boderWith/2, y: boderWith/2)
         actionView.backgroundColor = UIColor.grayColor()
