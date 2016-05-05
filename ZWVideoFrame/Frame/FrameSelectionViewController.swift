@@ -76,7 +76,8 @@ class FrameSelectionViewController: PageViewController,UICollectionViewDataSourc
         let frameConfig = FrameManager.sharedInstance.frames[indexPath.row]
         let configRoomVC = FrameConfigRoomViewController(frameConfig:frameConfig)
         let configRoomVC2 = FrameConfigRoomViewController(frameConfig:frameConfig)
-        let frameworkspaceVC = BrowserViewController(viewControllers: [ configRoomVC,configRoomVC2])
+        let configRoomVC3 = FrameConfigRoomViewController(frameConfig:frameConfig)
+        let frameworkspaceVC = BrowserViewController(viewControllers: [ configRoomVC,configRoomVC2,configRoomVC3])
 //        let navRoot = UINavigationController.init()
 //        navRoot.navigationBar.backgroundColor = UIColor.clearColor()
 //        navRoot.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)

@@ -10,13 +10,16 @@ import UIKit
 import FDTake
 import Player
 import ReactiveCocoa
+import PureLayout
+import AVFoundation
 
 class FrameConfigRoomViewController: CardViewController {
     let frameConfig:FrameConfig
     let roomView = FrameConfigRoomView()
     var fdTakeController : FDTakeController?
+
+    
     var player:Player?
-    dynamic var videoUrl: NSURL?
     required init(frameConfig:FrameConfig)
     {
         self.frameConfig = frameConfig
@@ -30,13 +33,13 @@ class FrameConfigRoomViewController: CardViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.view.addSubview(self.roomView)
+         self.contentView.addSubview(self.roomView)
         self.view.backgroundColor = UIColor.whiteColor()
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         
         self.roomView.configView(frameConfig)
-        
+        self.roomView.actionView!.userInteractionEnabled = false;
         let chooseHanlde = {
             [unowned self] (sender:AnyObject?) -> Void in
             if nil == self.fdTakeController {
@@ -57,9 +60,7 @@ class FrameConfigRoomViewController: CardViewController {
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             self.fdTakeController!.didCancel = {
-                let alert = UIAlertController(title: "Cancelled", message: "User did cancel while selecting", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                
             }
             self.fdTakeController!.didFail = {
                 let alert = UIAlertController(title: "Failed", message: "User selected but API failed", preferredStyle: .Alert)
@@ -67,20 +68,24 @@ class FrameConfigRoomViewController: CardViewController {
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             self.fdTakeController!.didGetPhoto = {
-                (photo: UIImage, info: [NSObject : AnyObject]) -> Void in
-                let alert = UIAlertController(title: "Got photo", message: "User selected photo", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                [unowned self](photo: UIImage, info: [NSObject : AnyObject]) -> Void in
                 
-                // http://stackoverflow.com/a/34487871/300224
-                let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-                alertWindow.rootViewController = UIViewController()
-                alertWindow.windowLevel = UIWindowLevelAlert + 1;
-                alertWindow.makeKeyAndVisible()
-                alertWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+                let source:VideoOrPhotoDataSouce = VideoOrPhotoDataSouce.init(photo: photo)
+                MergerDataSoucreViewModel.sharedInstance.dataSourceList.removeAll()
+                self.mergerSoucreList.removeAll()
+                
+                MergerDataSoucreViewModel.sharedInstance.dataSourceList.append(source)
+                self.mergerSoucreList.append(source)
             }
             self.fdTakeController!.didGetVideo = {
                 (video: NSURL, info: [NSObject : AnyObject]) -> Void in
-                self.videoUrl = video
+                let asset = AVAsset.init(URL: video)
+                let source:VideoOrPhotoDataSouce = VideoOrPhotoDataSouce.init(video: asset)
+                 MergerDataSoucreViewModel.sharedInstance.dataSourceList.removeAll()
+                self.mergerSoucreList.removeAll()
+                
+                self.mergerSoucreList.append(source)
+                MergerDataSoucreViewModel.sharedInstance.dataSourceList.append(source)
             }
             
             fdTakeVc.presentingView = self.view
@@ -102,25 +107,52 @@ class FrameConfigRoomViewController: CardViewController {
         }
        
         
-        let videoUrlProperty = DynamicProperty(object: self, keyPath:  "videoUrl")
-        videoUrlProperty.producer.startWithNext { [unowned self, pauseHandle, chooseHanlde] videoUrlAny in
-            if let videoUrl:NSURL = videoUrlAny as? NSURL {
-            
-            self.player = nil == self.player ? Player() : self.player
-            //self.player!.delegate = self
-            self.player!.view.frame.size = self.roomView.actionView!.frame.size
-                self.player!.view.frame.origin = CGPoint.zero
-            
-            self.addChildViewController(self.player!)
-            self.roomView.actionView!.addSubview(self.player!.view)
-            self.player!.didMoveToParentViewController(self)
-            self.player!.delegate = self;
-            self.player!.setUrl(videoUrl)
-                 self.roomView.actionHanler = pauseHandle
+        let mergerSoucreListProperty = DynamicProperty(object: self, keyPath:  "mergerSoucreList")
+        mergerSoucreListProperty.producer.startWithNext { [unowned self, pauseHandle, chooseHanlde] soucreListAny in
+            if let soucreList = soucreListAny as? NSArray{
+                let actulSourceList = soucreList as! [VideoOrPhotoDataSouce]
+            if let mergerSource:VideoOrPhotoDataSouce = actulSourceList.first{
+                
+                self.roomView.actionView?.removeSubViews()
+                if let videoAsset = mergerSource.video {
+                    
+                    guard let track = videoAsset.tracksWithMediaType(AVMediaTypeVideo).first else { return }
+                    let calcedSize = CGSizeApplyAffineTransform(track.naturalSize, track.preferredTransform)
+                    let videoSize = CGSize(width: fabs(calcedSize.width), height: fabs(calcedSize.height))
+                    //if videoSize.width/videoSize.height
+                    self.player = MergerDataSoucreViewModel.sharedInstance.getPlayerAtIndex(0)
+                    self.player!.setAsset(videoAsset)
+                     self.player!.delegate = self;
+                       
+                    //self.player!.delegate = self
+                    self.player!.view.frame.size = self.roomView.actionView!.frame.size
+                        self.player!.view.frame.origin = CGPoint.zero
+                    
+                    self.addChildViewController(self.player!)
+                    self.roomView.actionView!.addSubview(self.player!.view)
+                    self.player!.didMoveToParentViewController(self)
+                    self.roomView.actionHanler = pauseHandle
+                }
+                else if let photo = mergerSource.photo{
+                    if let actionView = self.roomView.actionView {
+                        actionView.removeSubViews()
+                        let imageView =  UIImageView()
+                        imageView.frame.size = actionView.frame.size
+                        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+                        imageView.image = photo
+                        actionView.addSubview(imageView)
+                    }
+                }
+            } else{
+                self.player?.removeFromParentViewController()
+                self.roomView.actionView?.removeSubViews()
+                self.roomView.actionHanler = chooseHanlde
+                }
             }
             else{
                 self.roomView.actionHanler = chooseHanlde
             }
+           
         }
     }
     
@@ -134,9 +166,19 @@ class FrameConfigRoomViewController: CardViewController {
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        self.roomView.autoPinEdgesToSuperviewMargins()
+        self.roomView.autoPinEdgeToSuperviewEdge(ALEdge.Bottom, withInset: 44)
+        self.roomView.autoPinEdgesToSuperviewMarginsExcludingEdge(ALEdge.Bottom)
     }
     
+    override func didEnterFullScreen() {
+        super.didEnterFullScreen()
+        self.roomView.actionView!.userInteractionEnabled = true;
+    }
+    
+    override func didLeaveFullScreen() {
+        super.didLeaveFullScreen()
+        self.roomView.actionView!.userInteractionEnabled = false
+    }
 
 }
 

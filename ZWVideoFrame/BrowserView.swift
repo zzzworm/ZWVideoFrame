@@ -220,16 +220,21 @@ func ==(lhs: BrowserItem, rhs: BrowserItem) -> Bool {
 protocol BrowserViewDelegate: class {
     func browserView(browserView: BrowserView, didShowItem item: BrowserItem)
     func browserView(browserView: BrowserView, didHideItem item: BrowserItem)
+    func browserView(browserView: BrowserView, willSelectItem item: BrowserItem)
+    func browserView(browserView: BrowserView, didSelectItem item: BrowserItem)
     func browserView(browserView: BrowserView, didEnterFullScreenForItem item: BrowserItem)
     func browserView(browserView: BrowserView, didLeaveFullScreenForItem item: BrowserItem)
     func browserViewDidScroll(browserView: BrowserView)
+    
 }
 
 class BrowserView: UIView {
     
     weak var delegate: BrowserViewDelegate? = nil
-    
-    private let paginationRatio: CGFloat = 0.68
+    var fullScreenItem: BrowserItem? = nil
+    var selectedItem: BrowserItem? = nil
+    var fullScreenMode:Bool = false
+    private let paginationRatio: CGFloat = 0.7
     
     private let index = Animatable(value: CGFloat.zero)
     
@@ -242,7 +247,6 @@ class BrowserView: UIView {
     
     private var lastLayoutSize = CGSize.zero
     
-    private var fullScreenItem: BrowserItem? = nil
     
     private let coverVisibilty: Spring<CGFloat> = {
         let s = Spring(value: CGFloat(1.0))
@@ -327,7 +331,10 @@ class BrowserView: UIView {
         if let item = closestItem {
             bringSubviewToFront(item.view)
         }
-        
+        if fullScreenMode {
+            fullScreenItem = closestItem;
+        }
+
         updateAllItems(true)
         updateVisibleItems()
         
@@ -418,11 +425,21 @@ class BrowserView: UIView {
         visibleItems.remove(item)
         item.view.removeFromSuperview()
         delegate?.browserView(self, didHideItem: item)
+        
+    }
+    
+    private func itemSelected(item: BrowserItem) {
+        assert(item.browserView == self)
+        assert(visibleItems.contains(item))
+        delegate?.browserView(self, willSelectItem: item)
+        selectedItem = item
+        delegate?.browserView(self, didSelectItem: item)
     }
     
     func enterFullScreen(item: BrowserItem) {
         assert(item.browserView == self)
         leaveFullScreen()
+        fullScreenMode = true
         fullScreenItem = item
         updateAllItems(true)
         index.animateTo(CGFloat(items.indexOf(item)!))
@@ -430,10 +447,14 @@ class BrowserView: UIView {
     }
     
     func leaveFullScreen() {
-        guard let item = fullScreenItem else { return }
+        //guard let item = fullScreenItem else { return }
+        fullScreenMode = false
         fullScreenItem = nil
         updateAllItems(true)
-        delegate?.browserView(self, didLeaveFullScreenForItem: item)
+        for fullScreenItem in items {
+            delegate?.browserView(self, didLeaveFullScreenForItem: fullScreenItem)
+        }
+        
     }
     
     private dynamic func pan(recognizer: UIPanGestureRecognizer) {
@@ -462,7 +483,10 @@ class BrowserView: UIView {
             config.tension = 120.0
             config.damping = 20.0
             config.threshold = 0.001
-            index.springTo(destIndex, initialVelocity: vel, configuration: config, completion: nil)
+            index.springTo(destIndex, initialVelocity: vel, configuration: config, completion: { [unowned self, destIndex](finished) in
+                    self.itemSelected(self.items[destIndex.int])
+                })
+            
         default:
             break
         }
@@ -472,9 +496,9 @@ class BrowserView: UIView {
 
 extension BrowserView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == panRecognizer && fullScreenItem != nil {
-            return false
-        }
+//        if gestureRecognizer == panRecognizer && fullScreenItem != nil {
+//            return false
+//        }
         return true
     }
 }
