@@ -13,8 +13,7 @@ class FrameConfigRoomView: UIView {
 
     let frameRoomView = UIView()
     let switchModeSegCtrl = UISegmentedControl()
-    var actionView : UIView?
-    var actionHanler : ((sender:AnyObject?) -> Void)?
+    var actionView : SourceActionView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +37,7 @@ class FrameConfigRoomView: UIView {
     
     }
     
-    func configView(frameConfig:FrameConfig)
+    func configView(frameConfig:FrameConfig) -> SourceActionView
     {
         setNeedsLayout()
         layoutIfNeeded()
@@ -47,11 +46,18 @@ class FrameConfigRoomView: UIView {
         
         let gestureReconizer = UITapGestureRecognizer.init(target: self, action: #selector(actionViewTapped))
         actionView?.addGestureRecognizer(gestureReconizer);
+        return actionView!
     }
     
     func actionViewTapped(sender:AnyObject?) {
-        if let hander = actionHanler {
-            hander(sender: sender)
+        if let actionGestureRecog = sender as? UITapGestureRecognizer {
+            if let actionView = actionGestureRecog.view as? SourceActionView{
+                if let handler = actionView.actionHandler {
+                    handler(sender: actionView)
+                }
+                
+            }
+
         }
     }
 }

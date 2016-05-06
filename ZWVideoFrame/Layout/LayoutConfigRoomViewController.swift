@@ -86,6 +86,22 @@ class LayoutConfigRoomViewController: CardViewController {
             fdTakeVc.present()
         }
         
+        let pauseHandle = {
+            [unowned self] (sender:AnyObject?) -> Void in
+            if let player = sender as? Player  {
+                if(player.playbackState == PlaybackState.Playing){
+                    player.pause()
+                }else if(player.playbackState == PlaybackState.Stopped){
+                    player.playFromBeginning()
+                }
+                else{
+                    player.playFromCurrentTime()
+                }
+            }
+        }
+
+        
+        
     }
     
     

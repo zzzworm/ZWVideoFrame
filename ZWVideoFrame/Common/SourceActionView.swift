@@ -10,6 +10,6 @@ import UIKit
 
 class SourceActionView: UIView {
 
-    var actionHanler : ((sender:AnyObject?) -> Void)?
+    var actionHandler : ((sender:AnyObject?) -> Void)?
 
 }

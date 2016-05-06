@@ -38,7 +38,7 @@ class FrameConfigRoomViewController: CardViewController {
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         
-        self.roomView.configView(frameConfig)
+        let actionView = self.roomView.configView(frameConfig)
         self.roomView.actionView!.userInteractionEnabled = false;
         let chooseHanlde = {
             [unowned self] (sender:AnyObject?) -> Void in
@@ -105,10 +105,9 @@ class FrameConfigRoomViewController: CardViewController {
                 }
             }
         }
-       
         
         let mergerSoucreListProperty = DynamicProperty(object: self, keyPath:  "mergerSoucreList")
-        mergerSoucreListProperty.producer.startWithNext { [unowned self, pauseHandle, chooseHanlde] soucreListAny in
+        mergerSoucreListProperty.producer.startWithNext { [unowned self, pauseHandle, chooseHanlde, actionView] soucreListAny in
             if let soucreList = soucreListAny as? NSArray{
                 let actulSourceList = soucreList as! [VideoOrPhotoDataSouce]
             if let mergerSource:VideoOrPhotoDataSouce = actulSourceList.first{
@@ -131,7 +130,7 @@ class FrameConfigRoomViewController: CardViewController {
                     self.addChildViewController(self.player!)
                     self.roomView.actionView!.addSubview(self.player!.view)
                     self.player!.didMoveToParentViewController(self)
-                    self.roomView.actionHanler = pauseHandle
+                    actionView.actionHandler = pauseHandle
                 }
                 else if let photo = mergerSource.photo{
                     if let actionView = self.roomView.actionView {
@@ -146,11 +145,11 @@ class FrameConfigRoomViewController: CardViewController {
             } else{
                 self.player?.removeFromParentViewController()
                 self.roomView.actionView?.removeSubViews()
-                self.roomView.actionHanler = chooseHanlde
+                actionView.actionHandler = chooseHanlde
                 }
             }
             else{
-                self.roomView.actionHanler = chooseHanlde
+                actionView.actionHandler = chooseHanlde
             }
            
         }
