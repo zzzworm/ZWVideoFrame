@@ -110,6 +110,7 @@ class FrameConfigRoomViewController: CardViewController {
         mergerSoucreListProperty.producer.startWithNext { [unowned self, pauseHandle, chooseHanlde, actionView] soucreListAny in
             if let soucreList = soucreListAny as? NSArray{
                 let actulSourceList = soucreList as! [VideoOrPhotoDataSouce]
+                self.showAndEnableRightNavigationItem()
             if let mergerSource:VideoOrPhotoDataSouce = actulSourceList.first{
                 
                 self.roomView.actionView?.removeSubViews()
@@ -143,19 +144,43 @@ class FrameConfigRoomViewController: CardViewController {
                     }
                 }
             } else{
+                self.hideAndDisableRightNavigationItem()
                 self.player?.removeFromParentViewController()
                 self.roomView.actionView?.removeSubViews()
                 actionView.actionHandler = chooseHanlde
                 }
             }
             else{
+                self.hideAndDisableRightNavigationItem()
+                self.player?.removeFromParentViewController()
+                self.roomView.actionView?.removeSubViews()
                 actionView.actionHandler = chooseHanlde
             }
            
         }
     }
     
-    
+    override func exportTapped(sender:UIResponder)
+    {
+        if MergerDataSoucreViewModel.sharedInstance.isContainVideo() {
+            
+        }
+        else{
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            
+            self.roomView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+           
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            
+            UIGraphicsEndImageContext()
+            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+            let documentsDirectory = paths[0] as String
+            let data:NSData = UIImagePNGRepresentation(image)! as NSData
+            data.writeToFile(documentsDirectory, atomically: true)
+            
+           
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

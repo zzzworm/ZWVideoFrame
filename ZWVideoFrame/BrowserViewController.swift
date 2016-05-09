@@ -53,7 +53,7 @@ final class BrowserViewController: UIViewController {
     let importMusicalView = ImportMusicalView(frame: CGRect.zero)
     var waveformVC : DVGWaveformController!
     var mediaPicker: MPMediaPickerController?
-    dynamic var toPrecessVideoAssets : [AVAsset]?
+
 
     
     required init(viewControllers: [CardViewController]) {
@@ -109,35 +109,24 @@ final class BrowserViewController: UIViewController {
         self.waveformVC = DVGWaveformController(containerView: self.importMusicalView.waveformView)
         self.importMusicalView.importButton.addTarget(self, action: #selector(onTapChooseSong), forControlEvents: UIControlEvents.TouchUpInside)
         
-        let property = DynamicProperty(object: self, keyPath: "toPrecessVideoAssets")
-         property.producer.startWithNext { [weak self] assets in
-            if (nil == assets){
-                return
-            }
-            let videoAssets = assets as! [AVAsset]
-            if 0 != videoAssets.count{
-            NSLog("hi %f", CMTimeGetSeconds((videoAssets.first?.duration)!))
-            }
-        }
-        property.producer.skip(0).startWithNext {[unowned self]asset in
-            if let VideoAssets = asset as? [AVAsset]{
-            self.showAndEnableRightNavigationItem()
-            let maxSecond =  VideoAssets.reduce(0,combine: { (maxSecond, videoA) -> Float64 in
-                
-                return CMTimeGetSeconds(videoA.duration) > maxSecond ? CMTimeGetSeconds(videoA.duration) : maxSecond
 
-            })
-                 NSLog("hello, \(maxSecond)")
+        self.importMusicalView.hidden = true;
+        hideAndDisableRightNavigationItem()
+        
+        let mergerSoucreListProperty = DynamicProperty(object: MergerDataSoucreViewModel.sharedInstance, keyPath:  "dataSourceList")
+        mergerSoucreListProperty.producer.startWithNext { [unowned self] soucreListAny in
+            if let soucreList = soucreListAny as? [VideoOrPhotoDataSouce]{
+                if soucreList.count > 0 {
+                    self.showAndEnableRightNavigationItem()
+                }
+                else{
+                    self.hideAndDisableRightNavigationItem()
+                }
             }
             else{
                 self.hideAndDisableRightNavigationItem()
             }
         }
-        let asset = AVAsset.init(URL: NSURL.init(string: "h")!)
-        self.toPrecessVideoAssets = [asset]
-        self.importMusicalView.hidden = true;
-        hideAndDisableRightNavigationItem()
-
     }
     
     
@@ -165,7 +154,7 @@ final class BrowserViewController: UIViewController {
     }
     
     func exportTapped(sender:UIResponder){
-        
+        currentItemViewController().exportTapped(sender)
     }
     
     func back(sender:UIResponder){
@@ -200,6 +189,11 @@ final class BrowserViewController: UIViewController {
     func configureWaveform() {
         self.waveformVC.movementDelegate = self
         self.waveformVC.numberOfPointsOnThePlot = 2000
+    }
+    
+    func currentItemViewController() -> CardViewController {
+        let selectedIndex = browserView.currentIndex.int
+        return viewControllers[selectedIndex]
     }
 }
 

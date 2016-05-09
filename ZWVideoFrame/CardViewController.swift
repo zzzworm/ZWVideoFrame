@@ -126,6 +126,9 @@ class CardViewController: UIViewController {
         mode = Mode.preview
     }
     
+    func exportTapped(sender:UIResponder) {
+        
+    }
     private func editMode(){
         noteLabel.alpha = 1.0
         contentView.alpha = 1.0

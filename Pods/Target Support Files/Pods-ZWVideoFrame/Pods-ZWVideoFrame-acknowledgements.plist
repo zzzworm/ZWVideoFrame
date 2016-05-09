@@ -90,6 +90,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>See README.markdown for full license text.</string>
+			<key>Title</key>
+			<string>OMGHTTPURLRQ</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014 Philip Kluz (Philip.Kluz@gmail.com)
@@ -178,6 +186,14 @@ SOFTWARE.
 </string>
 			<key>Title</key>
 			<string>Player</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>@see README</string>
+			<key>Title</key>
+			<string>PromiseKit</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

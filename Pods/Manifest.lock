@@ -2,9 +2,28 @@ PODS:
   - Advance (0.9)
   - EasyTipView (0.1.8)
   - FDTake (0.3.2)
+  - OMGHTTPURLRQ (3.1.1):
+    - OMGHTTPURLRQ/RQ (= 3.1.1)
+  - OMGHTTPURLRQ/FormURLEncode (3.1.1)
+  - OMGHTTPURLRQ/RQ (3.1.1):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (3.1.1)
   - PageMenu (1.2.9)
   - PKHUD (3.1.0)
   - Player (0.1.1)
+  - PromiseKit (3.1.1):
+    - PromiseKit/Foundation (= 3.1.1)
+    - PromiseKit/QuartzCore (= 3.1.1)
+    - PromiseKit/UIKit (= 3.1.1)
+  - PromiseKit/CorePromise (3.1.1)
+  - PromiseKit/Foundation (3.1.1):
+    - OMGHTTPURLRQ (~> 3.1.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (3.1.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (3.1.1):
+    - PromiseKit/CorePromise
   - PureLayout (3.0.1)
   - ReactiveCocoa (4.1.0):
     - ReactiveCocoa/UI (= 4.1.0)
@@ -29,6 +48,7 @@ DEPENDENCIES:
   - PageMenu
   - PKHUD
   - Player
+  - PromiseKit (~> 3.0)
   - PureLayout
   - ReactiveCocoa
   - Ruler
@@ -39,9 +59,11 @@ SPEC CHECKSUMS:
   Advance: 2872109f4d069b0b0245e1375ab5073e09dd051a
   EasyTipView: b4ea591d23b76d63d7b5680fd3edb07094318c9d
   FDTake: 122aaf465673b05648cd1b40200a19c85b1aa9e0
+  OMGHTTPURLRQ: 633f98ee745aeda02345935a52eec1784cddb589
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
   Player: 575e1e8cde1e6b7cd62d6d6bc06e492d02e62b9e
+  PromiseKit: 4e8127c22a9b29d1b44958ab2ec762ea6115cbfb
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   ReactiveCocoa: d70004d7a366a7b8e87e60ce2347182c77701949
   Result: 9e75e1111c774c6ac594e14907b15057053a7959

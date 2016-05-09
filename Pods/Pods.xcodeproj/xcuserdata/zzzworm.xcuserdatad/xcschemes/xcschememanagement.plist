@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>OMGHTTPURLRQ.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PKHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +45,11 @@
 			<false/>
 		</dict>
 		<key>Pods-ZWVideoFrame.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PromiseKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,7 +87,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E0D8E645EA41AC49EFC088D2A009508</key>
+		<key>190ACD3A51BC90B85EADB13E9CDD207B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E584457A8A588D0AEF287086D747C18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C6FD3D049F34AC331E8751394A2A4F5</key>
+		<key>5335A27247C75D1C8ED20F14302B88FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54AFD70776F263C388EDE6AFD58B7C1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B631ED3A4ECA56686A8842F5DBA59E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,37 +127,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>775ABD0ED64B3050F227FCF144F2091F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>7C57575B6424B464B670D33FED322BE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>86DA86EF6A4BEB963EBF7E8247D8BA57</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8A931BF68DD99EDF4F5B228D7F5486F0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AAEB16236131DE434BB845010F3AFD9E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C16B1AA477A14461D282010041D3E32A</key>
+		<key>9F8AD13E44C739D76BC5A96C57B82DC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C1E63A1BF93FD336FEC6B7950AA018F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4A63CBB8048570AFCFB8E419A45A469</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C86905139AF002B00B875C90A815FA40</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F166A15D8A4D57E9633E73C0E4E04849</key>
 		<dict>
 			<key>primary</key>
 			<true/>

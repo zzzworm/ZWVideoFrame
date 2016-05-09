@@ -23,7 +23,7 @@ class VideoOrPhotoDataSouce : NSObject {
 }
 
 class MergerDataSoucreViewModel: NSObject {
-    var dataSourceList:[VideoOrPhotoDataSouce] = []
+    dynamic var dataSourceList:[VideoOrPhotoDataSouce] = []
     var cachedPlayers:[Player] = []
     required override init() {
         super.init()
@@ -48,5 +48,14 @@ class MergerDataSoucreViewModel: NSObject {
             return cachedPlayers[index]
         }
     }
+    func isContainVideo() -> Bool {
+        let isContainVideo = dataSourceList.contains { (sourceItem) -> Bool in
+            return nil != sourceItem.video
+        }
+        return isContainVideo
+    }
     
+    func export(filePath:NSURL) -> Bool {
+        return false
+    }
 }

@@ -15,6 +15,7 @@ def pods
     pod 'Player'
     pod "PKHUD"
     pod 'SCRecorder'
+    pod "PromiseKit", "~> 3.0"
 end
 
 target 'ZWVideoFrame' do

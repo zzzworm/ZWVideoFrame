@@ -31,7 +31,7 @@ class FrameConfigRoomView: UIView {
     
     override func updateConstraints() {
         super.updateConstraints()
-        frameRoomView.autoPinEdgesToSuperviewMargins()
+        frameRoomView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets.init(top: 44, left: 0, bottom: 0, right: 0))
         switchModeSegCtrl.autoPinEdgeToSuperviewEdge(ALEdge.Top, withInset: 44)
         switchModeSegCtrl.autoPinEdgeToSuperviewEdge(ALEdge.Right)
     
