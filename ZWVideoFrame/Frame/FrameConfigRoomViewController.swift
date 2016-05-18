@@ -71,21 +71,21 @@ class FrameConfigRoomViewController: CardViewController {
                 [unowned self](photo: UIImage, info: [NSObject : AnyObject]) -> Void in
                 
                 let source:VideoOrPhotoDataSouce = VideoOrPhotoDataSouce.init(photo: photo)
-                MergerDataSoucreViewModel.sharedInstance.dataSourceList.removeAll()
+                MergerDataSoucreViewModel.sharedInstance.removeAllSource()
                 self.mergerSoucreList.removeAll()
                 
-                MergerDataSoucreViewModel.sharedInstance.dataSourceList.append(source)
+                MergerDataSoucreViewModel.sharedInstance.addSouce(source)
                 self.mergerSoucreList.append(source)
             }
             self.fdTakeController!.didGetVideo = {
                 (video: NSURL, info: [NSObject : AnyObject]) -> Void in
                 let asset = AVAsset.init(URL: video)
                 let source:VideoOrPhotoDataSouce = VideoOrPhotoDataSouce.init(video: asset)
-                 MergerDataSoucreViewModel.sharedInstance.dataSourceList.removeAll()
+                 MergerDataSoucreViewModel.sharedInstance.removeAllSource()
                 self.mergerSoucreList.removeAll()
                 
                 self.mergerSoucreList.append(source)
-                MergerDataSoucreViewModel.sharedInstance.dataSourceList.append(source)
+                MergerDataSoucreViewModel.sharedInstance.addSouce(source)
             }
             
             fdTakeVc.presentingView = self.view

@@ -23,7 +23,7 @@ class VideoOrPhotoDataSouce : NSObject {
 }
 
 class MergerDataSoucreViewModel: NSObject {
-    dynamic var dataSourceList:[VideoOrPhotoDataSouce] = []
+    private(set) dynamic var dataSourceList:[VideoOrPhotoDataSouce] = []
     var cachedPlayers:[Player] = []
     required override init() {
         super.init()
@@ -57,5 +57,20 @@ class MergerDataSoucreViewModel: NSObject {
     
     func export(filePath:NSURL) -> Bool {
         return false
+    }
+    
+    func addSouce(item:VideoOrPhotoDataSouce) {
+        dataSourceList.append(item)
+    }
+    
+    func removeSource(item:VideoOrPhotoDataSouce)
+    {
+        if (NSNotFound != dataSourceList.indexOf(item)){
+            dataSourceList.removeAtIndex(dataSourceList.indexOf(item))
+        }
+    }
+    
+    func removeAllSource() {
+        dataSourceList.removeAll()
     }
 }
