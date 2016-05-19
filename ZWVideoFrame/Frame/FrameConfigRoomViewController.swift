@@ -12,6 +12,7 @@ import Player
 import ReactiveCocoa
 import PureLayout
 import AVFoundation
+import AssetsLibrary
 
 class FrameConfigRoomViewController: CardViewController {
     let frameConfig:FrameConfig
@@ -178,8 +179,18 @@ class FrameConfigRoomViewController: CardViewController {
             let data:NSData = UIImagePNGRepresentation(image)! as NSData
             data.writeToFile(documentsDirectory, atomically: true)
             
-           
+            if (ALAssetsLibrary.authorizationStatus() == ALAuthorizationStatus.Denied) {
+                let alert = UIAlertView.init(title: NSLocalizedString("Save Failed", comment: ""), message: "You need to allow ZWVideoFrame to access your photos. Go to Settings -> Privacy -> Photos to change the settings.", delegate: nil, cancelButtonTitle: NSLocalizedString("OK",  comment: ""), otherButtonTitles: "")
+                alert.show();
+                return;
+            }
+            UISaveVideoAtPathToSavedPhotosAlbum("test.jpg", self, #selector(onSavedToAlbum), nil)
+
         }
+    }
+    
+    func onSavedToAlbum() {
+        
     }
     
     override func didReceiveMemoryWarning() {
