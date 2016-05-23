@@ -12,16 +12,16 @@ import PureLayout
 class FrameConfigRoomView: UIView {
 
     let frameRoomView = UIView()
-    let switchModeSegCtrl = UISegmentedControl()
+//    let switchModeSegCtrl = UISegmentedControl()
     var actionView : SourceActionView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(frameRoomView)
-        switchModeSegCtrl.insertSegmentWithTitle("1", atIndex: 0, animated: false)
-        switchModeSegCtrl.insertSegmentWithTitle("2", atIndex: 1, animated: false)
-        switchModeSegCtrl.insertSegmentWithTitle("3", atIndex: 2, animated: false)
-        self.addSubview(switchModeSegCtrl)
+//        switchModeSegCtrl.insertSegmentWithTitle("1", atIndex: 0, animated: false)
+//        switchModeSegCtrl.insertSegmentWithTitle("2", atIndex: 1, animated: false)
+//        switchModeSegCtrl.insertSegmentWithTitle("3", atIndex: 2, animated: false)
+//        self.addSubview(switchModeSegCtrl)
         self.updateConstraints()
     }
     
@@ -32,8 +32,8 @@ class FrameConfigRoomView: UIView {
     override func updateConstraints() {
         super.updateConstraints()
         frameRoomView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets.init(top: 44, left: 0, bottom: 0, right: 0))
-        switchModeSegCtrl.autoPinEdgeToSuperviewEdge(ALEdge.Top, withInset: 44)
-        switchModeSegCtrl.autoPinEdgeToSuperviewEdge(ALEdge.Right)
+//        switchModeSegCtrl.autoPinEdgeToSuperviewEdge(ALEdge.Top, withInset: 44)
+//        switchModeSegCtrl.autoPinEdgeToSuperviewEdge(ALEdge.Right)
     
     }
     

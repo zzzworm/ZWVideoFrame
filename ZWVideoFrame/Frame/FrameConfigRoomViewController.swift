@@ -137,6 +137,13 @@ class FrameConfigRoomViewController: CardViewController {
                 else if let photo = mergerSource.photo{
                     if let actionView = self.roomView.actionView {
                         actionView.removeSubViews()
+                        let ratio = photo.size.height/photo.size.width
+                        if(ratio * actionView.frame.size.width > CGRectGetHeight(actionView.frame)){
+                            
+                        }
+                        else{
+                            
+                        }
                         let imageView =  UIImageView()
                         imageView.frame.size = actionView.frame.size
                         imageView.contentMode = UIViewContentMode.ScaleAspectFit
@@ -169,7 +176,7 @@ class FrameConfigRoomViewController: CardViewController {
         else{
             UIGraphicsBeginImageContext(self.view.frame.size)
             
-            self.roomView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            self.roomView.frameRoomView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
            
             let image = UIGraphicsGetImageFromCurrentImageContext()
             
@@ -184,13 +191,18 @@ class FrameConfigRoomViewController: CardViewController {
                 alert.show();
                 return;
             }
-            UISaveVideoAtPathToSavedPhotosAlbum("test.jpg", self, #selector(onSavedToAlbum), nil)
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(onSavedToAlbum), nil)
 
         }
     }
     
-    func onSavedToAlbum() {
+    func onSavedToAlbum(image:UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
         
+        if let err = error {
+            UIAlertView(title: "错误", message: err.localizedDescription, delegate: nil, cancelButtonTitle: "确定").show()
+        } else {
+           
+        }
     }
     
     override func didReceiveMemoryWarning() {

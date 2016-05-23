@@ -38,7 +38,7 @@ class BrowserItem: NSObject {
     
     let tapRecognizer = UITapGestureRecognizer()
 
-    let recognizer = DirectManipulationGestureRecognizer()
+//    let recognizer = DirectManipulationGestureRecognizer()
     let panRecognizer = UIPanGestureRecognizer()
     
     var anchorPoint = CGPoint(x: 0.5, y: 0.5) {
@@ -93,8 +93,8 @@ class BrowserItem: NSObject {
         tapRecognizer.addTarget(self, action: "tap")
         view.addGestureRecognizer(tapRecognizer)
         
-        recognizer.addTarget(self, action: "gesture:")
-        view.addGestureRecognizer(recognizer)
+//        recognizer.addTarget(self, action: "gesture:")
+//        view.addGestureRecognizer(recognizer)
         
         panRecognizer.addTarget(self, action: "pan:")
         panRecognizer.delegate = self
