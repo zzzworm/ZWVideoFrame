@@ -174,17 +174,17 @@ class FrameConfigRoomViewController: CardViewController {
             
         }
         else{
-            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIGraphicsBeginImageContext(self.roomView.frameRoomView.frame.size)
             
             self.roomView.frameRoomView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
            
             let image = UIGraphicsGetImageFromCurrentImageContext()
             
             UIGraphicsEndImageContext()
-            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-            let documentsDirectory = paths[0] as String
-            let data:NSData = UIImagePNGRepresentation(image)! as NSData
-            data.writeToFile(documentsDirectory, atomically: true)
+//            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+//            let documentsDirectory = paths[0] as String
+//            let data:NSData = UIImagePNGRepresentation(image)! as NSData
+//            data.writeToFile(documentsDirectory, atomically: true)
             
             if (ALAssetsLibrary.authorizationStatus() == ALAuthorizationStatus.Denied) {
                 let alert = UIAlertView.init(title: NSLocalizedString("Save Failed", comment: ""), message: "You need to allow ZWVideoFrame to access your photos. Go to Settings -> Privacy -> Photos to change the settings.", delegate: nil, cancelButtonTitle: NSLocalizedString("OK",  comment: ""), otherButtonTitles: "")

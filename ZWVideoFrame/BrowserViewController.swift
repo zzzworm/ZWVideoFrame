@@ -114,17 +114,17 @@ final class BrowserViewController: UIViewController {
         hideAndDisableRightNavigationItem()
         
         let mergerSoucreListProperty = DynamicProperty(object: MergerDataSoucreViewModel.sharedInstance, keyPath:  "dataSourceList")
-        mergerSoucreListProperty.producer.startWithNext { [unowned self] soucreListAny in
+        mergerSoucreListProperty.producer.startWithNext { [weak self] soucreListAny in
             if let soucreList = soucreListAny as? [VideoOrPhotoDataSouce]{
                 if soucreList.count > 0 {
-                    self.showAndEnableRightNavigationItem()
+                    self?.showAndEnableRightNavigationItem()
                 }
                 else{
-                    self.hideAndDisableRightNavigationItem()
+                    self?.hideAndDisableRightNavigationItem()
                 }
             }
             else{
-                self.hideAndDisableRightNavigationItem()
+                self?.hideAndDisableRightNavigationItem()
             }
         }
     }
