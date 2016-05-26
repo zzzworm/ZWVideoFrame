@@ -196,6 +196,45 @@ class FrameConfigRoomViewController: CardViewController {
         }
     }
     
+    func compositionCrop(asset:AVAsset, size:CGSize) -> AVVideoComposition {
+        
+
+    let videoComposition = AVMutableVideoComposition.init(propertiesOfAsset: asset);
+        let exportLayer = CALayer.init();
+        let videoLayer = CALayer.init();
+        videoLayer.contentsGravity = kCAGravityResizeAspect;
+        exportLayer.frame = CGRectMake(0, 0, videoSize.width, videoSize.height);
+        videoLayer.frame = CGRectMake(0,  0, videoSize.width, videoSize.height);
+        
+        exportLayer.addSublayer(videoLayer);
+        
+        let vFrameLayer = CAShapeLayer.init();
+        parentLayer.addSublayer(vFrameLayer);
+    videoComposition.animationTool = AVVideoCompositionCoreAnimationTool.init(postProcessingAsVideoLayer: videoLayer, inLayer: exprotLayer)
+    let videoTrack = asset.tracksWithMediaType(AVMediaTypeVideo).first;
+    
+    // get the frame rate from videoSettings, if not set then try to get it from the video track,
+    // if not set (mainly when asset is AVComposition) then use the default frame rate of 30
+    
+    let trackFrameRate = videoTrack?.nominalFrameRate;
+    
+    videoComposition.frameDuration = CMTimeMake(1, trackFrameRate);
+    
+    videoComposition.renderSize = size;
+    let videoSize = CGSize.zero
+    
+    // Make a "pass through video track" video composition.
+    let  passThroughInstruction = AVMutableVideoCompositionInstruction.videoCompositionInstruction;
+    passThroughInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, asset.duration);
+    
+    let  passThroughLayer = AVMutableVideoCompositionLayerInstruction.init(assetTrack: videoTrack);
+       
+    let layerTransform = CGAffineTransformIdentity;
+    videoComposition.instructions = [passThroughLayer]
+      
+    return videoComposition;
+    }
+
     func onSavedToAlbum(image:UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
         
         if let err = error {
