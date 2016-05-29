@@ -171,7 +171,38 @@ class FrameConfigRoomViewController: CardViewController {
     override func exportTapped(sender:UIResponder)
     {
         if MergerDataSoucreViewModel.sharedInstance.isContainVideo() {
+             let videoAsset = self.mergerSoucreList.first?.video!
+            let videoComposition = compositionForExport(videoAsset!, exportSize: self.roomView.frameRoomView.frame.size)
+            let videoTrack = videoAsset?.tracksWithMediaType(AVMediaTypeVideo).first
+            let mixComposition = AVMutableComposition.init();
+            let  toDuetcompositionVideoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID.init());
+            do{
+            try toDuetcompositionVideoTrack.insertTimeRange(videoTrack!.timeRange, ofTrack: videoTrack!, atTime: kCMTimeZero)
+            }
+            catch{
+                
+            }
             
+            
+            if let videoAssetExport = AVAssetExportSession.init(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality){
+               videoAssetExport.videoComposition = videoComposition
+            
+            
+            let exportUrl = self.exportVideoPath();
+            videoAssetExport.outputFileType = AVFileTypeMPEG4;
+            videoAssetExport.outputURL = exportUrl;
+            videoAssetExport.shouldOptimizeForNetworkUse = false;
+            videoAssetExport.exportAsynchronouslyWithCompletionHandler({ 
+                if (videoAssetExport.status == AVAssetExportSessionStatus.Completed) {
+                }
+                else if (videoAssetExport.status == AVAssetExportSessionStatus.Exporting) {
+             }
+                                        else if (videoAssetExport.status == AVAssetExportSessionStatus.Failed) {
+                                                }
+                })
+                
+            }
+
         }
         else{
             UIGraphicsBeginImageContext(self.roomView.frameRoomView.frame.size)
@@ -195,42 +226,46 @@ class FrameConfigRoomViewController: CardViewController {
 
         }
     }
-    
-    func compositionCrop(asset:AVAsset, size:CGSize) -> AVVideoComposition {
-        
+    func exportVideoPath() -> NSURL {
 
+        let documentsDirectory = NSURL.init(string: NSHomeDirectory())
+        let exportPath = documentsDirectory!.URLByAppendingPathComponent("test.mp4")
+        return exportPath
+
+    }
+    
+    func compositionForExport(asset:AVAsset, exportSize:CGSize) -> AVVideoComposition {
+        
+    let videoSize = self.roomView.actionView!.frame.size
+    let frameOuterSize = self.roomView.frameRoomView.frame.size
     let videoComposition = AVMutableVideoComposition.init(propertiesOfAsset: asset);
         let exportLayer = CALayer.init();
         let videoLayer = CALayer.init();
         videoLayer.contentsGravity = kCAGravityResizeAspect;
-        exportLayer.frame = CGRectMake(0, 0, videoSize.width, videoSize.height);
+        exportLayer.frame = CGRectMake(0, 0, frameOuterSize.width, frameOuterSize.height);
         videoLayer.frame = CGRectMake(0,  0, videoSize.width, videoSize.height);
         
         exportLayer.addSublayer(videoLayer);
         
-        let vFrameLayer = CAShapeLayer.init();
-        parentLayer.addSublayer(vFrameLayer);
-    videoComposition.animationTool = AVVideoCompositionCoreAnimationTool.init(postProcessingAsVideoLayer: videoLayer, inLayer: exprotLayer)
+        let vFrameLayer = CAShapeLayer.init(layer: self.roomView);
+        exportLayer.addSublayer(vFrameLayer);
+    videoComposition.animationTool = AVVideoCompositionCoreAnimationTool.init(postProcessingAsVideoLayer: videoLayer, inLayer: exportLayer)
     let videoTrack = asset.tracksWithMediaType(AVMediaTypeVideo).first;
     
     // get the frame rate from videoSettings, if not set then try to get it from the video track,
     // if not set (mainly when asset is AVComposition) then use the default frame rate of 30
+   
+ //   let trackFrameRate = videoTrack?.nominalFrameRate;
+
     
-    let trackFrameRate = videoTrack?.nominalFrameRate;
-    
-    videoComposition.frameDuration = CMTimeMake(1, trackFrameRate);
-    
-    videoComposition.renderSize = size;
-    let videoSize = CGSize.zero
-    
+    videoComposition.renderSize = exportSize;
     // Make a "pass through video track" video composition.
-    let  passThroughInstruction = AVMutableVideoCompositionInstruction.videoCompositionInstruction;
+    let  passThroughInstruction = AVMutableVideoCompositionInstruction.init();
     passThroughInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, asset.duration);
     
-    let  passThroughLayer = AVMutableVideoCompositionLayerInstruction.init(assetTrack: videoTrack);
-       
-    let layerTransform = CGAffineTransformIdentity;
-    videoComposition.instructions = [passThroughLayer]
+    let  passThroughLayerInstruction = AVMutableVideoCompositionLayerInstruction.init(assetTrack: videoTrack!);
+        passThroughInstruction.layerInstructions = [passThroughLayerInstruction]
+    videoComposition.instructions = [passThroughInstruction]
       
     return videoComposition;
     }

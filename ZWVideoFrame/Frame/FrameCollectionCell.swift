@@ -13,8 +13,9 @@ class FrameCollectionCell: UICollectionViewCell {
     let frameView: UIView = UIView()
 
     var frameConfig : FrameConfig?
-    var actionView : UIView?
-
+    var actionView : SourceActionView?
+    var frameLayer : CAShapeLayer?
+    
     required override init(frame: CGRect) {
         super.init(frame:frame)
         
@@ -34,7 +35,7 @@ class FrameCollectionCell: UICollectionViewCell {
     func configFrameConfig(frameConfig:FrameConfig) -> Void {
         self.setNeedsLayout()
         self.layoutIfNeeded()
-        actionView = frameConfig.drawShapView(frameView)
+        (actionView,frameLayer) = frameConfig.drawShapView(frameView)
 
         self.frameConfig = frameConfig
     }

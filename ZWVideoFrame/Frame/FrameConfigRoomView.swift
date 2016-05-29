@@ -14,7 +14,7 @@ class FrameConfigRoomView: UIView {
     let frameRoomView = UIView()
 //    let switchModeSegCtrl = UISegmentedControl()
     var actionView : SourceActionView?
-    
+    var vFrameLayer : CAShapeLayer?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(frameRoomView)
@@ -42,7 +42,7 @@ class FrameConfigRoomView: UIView {
         setNeedsLayout()
         layoutIfNeeded()
         
-        actionView = frameConfig.drawShapView(frameRoomView)
+        (actionView,vFrameLayer) = frameConfig.drawShapView(frameRoomView)
         
         let gestureReconizer = UITapGestureRecognizer.init(target: self, action: #selector(actionViewTapped))
         actionView?.addGestureRecognizer(gestureReconizer);
